@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/app.css">
+<script defer src="assets/app.js"></script>
 <style>
   .heat td.cell { padding: 8px 10px; text-align: right; font-family: var(--font-mono); font-size: 12px; border-radius: 4px; }
   .heat .h0 { background: var(--c-paper-warm); color: var(--c-ink-300); }
@@ -15,7 +16,8 @@
   .heat .h4 { background: var(--c-red-700); color: #FFF; }
   .heat .h5 { background: var(--c-red-800); color: #FFF; }
   .heat th { font: var(--t-eyebrow); color: var(--c-ink-500); padding: 8px; text-align: center; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; }
-  .heat td.name { font: 600 13px/1.2 var(--font-display); padding-right: 16px; }
+  .heat td.name { font: 600 13px/1.2 var(--font-display); padding-right: 16px; white-space: nowrap; }
+  .heat { min-width: 760px; }
 </style>
 </head>
 <body>

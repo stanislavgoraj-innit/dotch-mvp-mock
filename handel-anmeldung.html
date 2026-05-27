@@ -6,6 +6,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/app.css">
+<script defer src="assets/app.js"></script>
+<style>
+  .stepper { display: flex; gap: 8px; margin-top: -8px; }
+  .stepper > div { flex: 1; display: flex; gap: 8px; align-items: center; min-width: 0; }
+  .stepper .label { font: 600 13px/1.2 var(--font-sans); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .stepper .label.off { font-weight: 500; color: var(--c-ink-500); }
+  .stepper .line { flex: 1; height: 2px; background: var(--c-line); }
+
+  .gebinde-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 14px;
+    padding: 14px;
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-md);
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  .gebinde-row.on { border-color: var(--c-red-300); background: var(--c-red-100); }
+  .gebinde-row .menge { width: 120px; }
+
+  @media (max-width: 640px) {
+    .stepper { flex-direction: column; gap: 6px; }
+    .stepper > div { flex: 0 0 auto; }
+    .stepper .line { display: none; }
+    .stepper .label { white-space: normal; }
+    .gebinde-row {
+      grid-template-columns: auto 1fr;
+      gap: 10px 12px;
+    }
+    .gebinde-row .menge { width: 100%; grid-column: 1 / -1; }
+    .gebinde-row .badge-cell { grid-column: 1 / -1; justify-self: start; }
+  }
+</style>
 </head>
 <body>
 <div class="app">
@@ -80,20 +114,20 @@
       </div>
 
       <!-- Stepper -->
-      <div class="flex gap-2" style="margin-top: -8px;">
-        <div style="flex:1; display:flex; gap:8px; align-items:center;">
-          <span style="width:24px; height:24px; border-radius:50%; background: var(--c-red-600); color:#FFF; font: 600 12px/1 var(--font-sans); display:inline-flex; align-items:center; justify-content:center;">1</span>
-          <span style="font: 600 13px/1.2 var(--font-sans);">Gebinde & Menge</span>
-          <span style="flex:1; height:2px; background: var(--c-line);"></span>
+      <div class="stepper">
+        <div>
+          <span style="width:24px; height:24px; border-radius:50%; background: var(--c-red-600); color:#FFF; font: 600 12px/1 var(--font-sans); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;">1</span>
+          <span class="label">Gebinde & Menge</span>
+          <span class="line"></span>
         </div>
-        <div style="flex:1; display:flex; gap:8px; align-items:center;">
-          <span style="width:24px; height:24px; border-radius:50%; background: var(--c-paper-deep); color: var(--c-ink-500); font: 600 12px/1 var(--font-sans); display:inline-flex; align-items:center; justify-content:center;">2</span>
-          <span style="font: 500 13px/1.2 var(--font-sans); color: var(--c-ink-500);">Datum & Abholort</span>
-          <span style="flex:1; height:2px; background: var(--c-line);"></span>
+        <div>
+          <span style="width:24px; height:24px; border-radius:50%; background: var(--c-paper-deep); color: var(--c-ink-500); font: 600 12px/1 var(--font-sans); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;">2</span>
+          <span class="label off">Datum & Abholort</span>
+          <span class="line"></span>
         </div>
-        <div style="flex:1; display:flex; gap:8px; align-items:center;">
-          <span style="width:24px; height:24px; border-radius:50%; background: var(--c-paper-deep); color: var(--c-ink-500); font: 600 12px/1 var(--font-sans); display:inline-flex; align-items:center; justify-content:center;">3</span>
-          <span style="font: 500 13px/1.2 var(--font-sans); color: var(--c-ink-500);">Bestätigen & senden</span>
+        <div>
+          <span style="width:24px; height:24px; border-radius:50%; background: var(--c-paper-deep); color: var(--c-ink-500); font: 600 12px/1 var(--font-sans); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;">3</span>
+          <span class="label off">Bestätigen & senden</span>
         </div>
       </div>
 
@@ -105,61 +139,61 @@
           <h3 style="margin: 6px 0 18px;">Drei Gebinde haben den Schwellenwert erreicht</h3>
 
           <!-- Gebinde 1 -->
-          <article style="display:grid; grid-template-columns: auto 1fr auto auto; gap:14px; padding: 14px; border:1px solid var(--c-red-300); border-radius: var(--r-md); background: var(--c-red-100); margin-bottom: 10px;">
-            <input type="checkbox" checked style="margin-top: 4px; accent-color: var(--c-red-600);">
+          <article class="gebinde-row on">
+            <input type="checkbox" checked style="accent-color: var(--c-red-600);">
             <div>
               <div style="font: 600 14px/1.3 var(--font-display);">0,5 L Ölflasche · Standard</div>
               <div class="muted" style="font: var(--t-caption);">OIL-500 · Bestand 8.420 · empfohlen für: Rapunzel, BIO PLANÈTE, Byodo</div>
             </div>
-            <div class="field" style="width:120px;">
+            <div class="field menge">
               <label>Menge</label>
               <input type="number" value="5400">
             </div>
-            <span class="badge ok" style="align-self:center;"><span class="dot"></span>über Schwelle</span>
+            <span class="badge ok badge-cell"><span class="dot"></span>über Schwelle</span>
           </article>
 
           <!-- Gebinde 2 -->
-          <article style="display:grid; grid-template-columns: auto 1fr auto auto; gap:14px; padding: 14px; border:1px solid var(--c-red-300); border-radius: var(--r-md); background: var(--c-red-100); margin-bottom: 10px;">
-            <input type="checkbox" checked style="margin-top: 4px; accent-color: var(--c-red-600);">
+          <article class="gebinde-row on">
+            <input type="checkbox" checked style="accent-color: var(--c-red-600);">
             <div>
               <div style="font: 600 14px/1.3 var(--font-display);">0,7 L Saftflasche Bio</div>
               <div class="muted" style="font: var(--t-caption);">JUI-700 · Bestand 6.180 · empfohlen für: Voelkel, Sonnentor, Eos</div>
             </div>
-            <div class="field" style="width:120px;">
+            <div class="field menge">
               <label>Menge</label>
               <input type="number" value="3200">
             </div>
-            <span class="badge ok" style="align-self:center;"><span class="dot"></span>über Schwelle</span>
+            <span class="badge ok badge-cell"><span class="dot"></span>über Schwelle</span>
           </article>
 
           <!-- Gebinde 3 -->
-          <article style="display:grid; grid-template-columns: auto 1fr auto auto; gap:14px; padding: 14px; border:1px solid var(--c-red-300); border-radius: var(--r-md); background: var(--c-red-100); margin-bottom: 10px;">
-            <input type="checkbox" checked style="margin-top: 4px; accent-color: var(--c-red-600);">
+          <article class="gebinde-row on">
+            <input type="checkbox" checked style="accent-color: var(--c-red-600);">
             <div>
               <div style="font: 600 14px/1.3 var(--font-display);">370 ml Konfitürenglas</div>
               <div class="muted" style="font: var(--t-caption);">JAR-370 · Bestand 11.260 · empfohlen für: Zwergenwiese, Allos</div>
             </div>
-            <div class="field" style="width:120px;">
+            <div class="field menge">
               <label>Menge</label>
               <input type="number" value="7200">
             </div>
-            <span class="badge ok" style="align-self:center;"><span class="dot"></span>über Schwelle</span>
+            <span class="badge ok badge-cell"><span class="dot"></span>über Schwelle</span>
           </article>
 
           <hr>
 
           <p class="muted" style="font: var(--t-small);">Weitere Gebinde optional hinzufügen:</p>
-          <article style="display:grid; grid-template-columns: auto 1fr auto auto; gap:14px; padding: 14px; border:1px solid var(--c-line); border-radius: var(--r-md); margin-bottom: 10px;">
-            <input type="checkbox" style="margin-top: 4px; accent-color: var(--c-red-600);">
+          <article class="gebinde-row">
+            <input type="checkbox" style="accent-color: var(--c-red-600);">
             <div>
               <div style="font: 600 14px/1.3 var(--font-display);">250 ml Joghurtglas MMP</div>
               <div class="muted" style="font: var(--t-caption);">YOG-250 · Bestand 7.940 · Schwelle: 8.000</div>
             </div>
-            <div class="field" style="width:120px;">
+            <div class="field menge">
               <label>Menge</label>
               <input type="number" placeholder="0">
             </div>
-            <span class="badge warn" style="align-self:center;"><span class="dot"></span>unter Schwelle</span>
+            <span class="badge warn badge-cell"><span class="dot"></span>unter Schwelle</span>
           </article>
 
           <button class="btn btn-ghost" style="margin-top: 4px;">

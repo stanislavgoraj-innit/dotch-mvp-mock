@@ -6,6 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/app.css">
+<script defer src="assets/app.js"></script>
+<style>
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 36px;
+    align-items: end;
+    margin-top: 10px;
+  }
+  @media (max-width: 900px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+  }
+  @media (max-width: 480px) {
+    .hero-stats { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>
 </head>
 <body>
 <div class="app">
@@ -83,7 +99,7 @@
       <!-- Hero stat -->
       <section class="card" style="background: var(--c-red-800); color:#FFF; border:0;">
         <span class="eyebrow" style="color: var(--c-red-300);">YTD · 1. Jan – 27. Mai 2026</span>
-        <div style="display:grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 36px; align-items: end; margin-top: 10px;">
+        <div class="hero-stats">
           <div>
             <div style="font: 500 18px/1.2 var(--font-sans); color: rgba(255,255,255,0.7); margin-bottom: 6px;">CO₂ eingespart vs. Einweg</div>
             <div style="font: 500 64px/1 var(--font-display); letter-spacing: var(--ls-display); color:#FFF;">82,4 t</div>

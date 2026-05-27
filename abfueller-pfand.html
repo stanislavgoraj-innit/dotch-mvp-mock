@@ -6,6 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/app.css">
+<script defer src="assets/app.js"></script>
+<style>
+  .pfand-pos {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    padding: 14px;
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-md);
+    margin: 8px 0;
+  }
+  @media (max-width: 640px) {
+    .pfand-pos { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 <div class="app">
@@ -132,7 +147,7 @@
 
           <span class="meta" style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: var(--c-ink-500);">Gebinde-Positionen</span>
 
-          <article style="display:grid; grid-template-columns: 2fr 1fr 1fr; gap:10px; padding: 14px; border:1px solid var(--c-line); border-radius: var(--r-md); margin: 8px 0;">
+          <article class="pfand-pos">
             <div class="field">
               <label>Gebindeart</label>
               <select>
@@ -152,7 +167,7 @@
             </div>
           </article>
 
-          <article style="display:grid; grid-template-columns: 2fr 1fr 1fr; gap:10px; padding: 14px; border:1px solid var(--c-line); border-radius: var(--r-md); margin: 8px 0;">
+          <article class="pfand-pos">
             <div class="field">
               <label>Gebindeart</label>
               <select>

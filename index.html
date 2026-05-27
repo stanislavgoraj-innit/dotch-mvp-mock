@@ -8,6 +8,13 @@
 <link rel="stylesheet" href="assets/app.css">
 <style>
   .role-grid { grid-template-columns: 1fr; }
+  @media (max-width: 640px) {
+    .login-shell .visual ul.cycle-list { grid-template-columns: repeat(2, 1fr) !important; }
+    .login-shell .visual .lang-pill { flex-wrap: wrap; }
+  }
+  @media (max-width: 380px) {
+    .login-shell .visual ul.cycle-list { grid-template-columns: 1fr !important; }
+  }
 </style>
 </head>
 <body>

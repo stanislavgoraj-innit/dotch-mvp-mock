@@ -77,6 +77,17 @@
   .desktop {
     padding: 32px 40px;
   }
+
+  @media (max-width: 900px) {
+    .clearing-shell { grid-template-columns: 1fr; }
+    .device { border-right: 0; border-bottom: 1px solid var(--c-line); min-height: auto; }
+    .desktop { padding: 20px 16px; }
+    .desktop .kpi-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 640px) {
+    .device { padding: 18px 14px; }
+    .key { padding: 14px; font-size: 18px; }
+  }
 </style>
 </head>
 <body>
@@ -182,6 +193,7 @@
     </div>
 
     <h3 style="margin: 32px 0 12px;">Heutige Lieferungen</h3>
+    <div class="scroll-x">
     <table class="data">
       <thead>
         <tr>
@@ -242,6 +254,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
 
     <p class="muted" style="font: var(--t-small); margin-top: 24px;">
       Tipp: Die App läuft am besten auf einem Lager-Tablet (10–12 Zoll) oder Handheld-Scanner mit Browser. Kein App-Store-Download nötig.
