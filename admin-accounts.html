@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · Accounts & Rollen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .perm-grid {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(4, 1fr);
+    gap: 1px;
+    background: var(--c-line);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  .perm-grid > div { background: #FFF; padding: 14px 16px; }
+  .perm-grid .head {
+    background: var(--c-paper-warm);
+    font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform: uppercase;
+    color: var(--c-ink-500);
+  }
+  .perm-grid .ability { font: 500 13px/1.3 var(--font-display); }
+  .perm-grid .ability span { display:block; font: var(--t-caption); color: var(--c-ink-500); margin-top: 2px; }
+  .perm-grid .cell { text-align: center; }
+  .perm-grid .cell .check {
+    width: 20px; height: 20px; display:inline-flex; align-items:center; justify-content:center;
+    background: var(--c-red-100); color: var(--c-red-700); border-radius: 50%;
+  }
+  .perm-grid .cell .nope { color: var(--c-ink-300); }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="word"><span class="cluster"><i></i><i></i><i></i><i></i><i></i><i></i></span>dotch</span>
+      <span class="tag">admin</span>
+    </div>
+    <nav>
+      <span class="nav-section">Verwaltung</span>
+      <a href="admin-accounts.html" class="nav-item active">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/></svg>
+        Accounts & Rollen
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+        Standorte & Lager
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/></svg>
+        Benachrichtigungen
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06"/></svg>
+        Einstellungen
+      </a>
+
+      <span class="nav-section">Zurück</span>
+      <a href="handel-dashboard.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Zum Handel-Dashboard
+      </a>
+      <a href="abfueller-dashboard.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Zum Abfüller-Dashboard
+      </a>
+    </nav>
+    <div class="bottom">
+      <a href="index.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/></svg>
+        Abmelden
+      </a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="crumbs"><strong>BioFresh Süd</strong><span>·</span><span>Verwaltung</span><span>·</span><span>Accounts & Rollen</span></div>
+      <div class="actions">
+        <div class="lang-pill"><button class="on">DE</button><button>EN</button></div>
+        <span class="avatar">MK</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">Organisation · BioFresh Süd</span>
+          <h1>Wer darf <span class="accent">was?</span></h1>
+          <p class="sub">14 Mitarbeitende · 4 Rollen · Mehrere Standorte. Organisation bestimmt selbst, wer worauf Zugriff hat.</p>
+        </div>
+        <div class="right">
+          <button class="btn btn-ghost">Rolle anlegen</button>
+          <button class="btn btn-primary">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Person einladen
+          </button>
+        </div>
+      </div>
+
+      <!-- Rollen-Matrix -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <span class="meta">Berechtigungsmatrix</span>
+            <h3>Rollen & Zugriff</h3>
+          </div>
+          <a class="btn-text btn" href="#">Berechtigungen exportieren →</a>
+        </div>
+
+        <div class="perm-grid">
+          <div class="head">Funktion</div>
+          <div class="head cell">Admin</div>
+          <div class="head cell">Leergut</div>
+          <div class="head cell">Dispo</div>
+          <div class="head cell">Controlling</div>
+
+          <div class="ability">Mengen-Eingabe<span>Bestand erfassen, scannen</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell nope">—</div>
+          <div class="cell nope">—</div>
+
+          <div class="ability">Anmeldungen senden<span>Leergut-Abholung anmelden</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell nope">—</div>
+
+          <div class="ability">Reservierungen bestätigen<span>Anfragen Abfüller annehmen/ablehnen</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell nope">—</div>
+          <div class="cell nope">—</div>
+
+          <div class="ability">Wareneingang clearen<span>Lieferungen abgleichen</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell nope">—</div>
+          <div class="cell nope">—</div>
+
+          <div class="ability">Reportings einsehen<span>CO₂-, CSR-, Verteilungs-Reports</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell nope">—</div>
+          <div class="cell nope">—</div>
+          <div class="cell"><span class="check">✓</span></div>
+
+          <div class="ability">Reportings exportieren<span>CSV, PDF, API</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell nope">—</div>
+          <div class="cell nope">—</div>
+          <div class="cell"><span class="check">✓</span></div>
+
+          <div class="ability">Gebinde-Sichtbarkeit verwalten<span>z. B. nur Veltins sieht Veltins-Glas</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell nope">—</div>
+          <div class="cell nope">—</div>
+          <div class="cell nope">—</div>
+
+          <div class="ability">Accounts & Rollen<span>einladen, entfernen, Rollen ändern</span></div>
+          <div class="cell"><span class="check">✓</span></div>
+          <div class="cell nope">—</div>
+          <div class="cell nope">—</div>
+          <div class="cell nope">—</div>
+        </div>
+      </section>
+
+      <!-- Mitarbeiter-Liste -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <span class="meta">Mitarbeitende · 14</span>
+            <h3>Aktive Accounts</h3>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="chip on">Alle (14)</button>
+            <button class="chip">Admin (2)</button>
+            <button class="chip">Leergut (7)</button>
+            <button class="chip">Dispo (3)</button>
+            <button class="chip">Controlling (2)</button>
+          </div>
+        </div>
+        <table class="data">
+          <thead>
+            <tr><th>Person</th><th>E-Mail</th><th>Rolle</th><th>Standort</th><th>Letzter Login</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="flex gap-3 center-y"><span class="avatar">MK</span><strong>Maria Krüger</strong></div></td>
+              <td class="mono">maria.krueger@biofresh.de</td>
+              <td><span class="badge info"><span class="dot"></span>Admin</span></td>
+              <td>Augsburg</td>
+              <td class="muted">heute, 09:14</td>
+              <td><a class="btn-text btn btn-sm" href="#">Bearbeiten</a></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-3 center-y"><span class="avatar">JT</span><strong>Jonas Thaler</strong></div></td>
+              <td class="mono">jonas.thaler@biofresh.de</td>
+              <td><span class="badge ok"><span class="dot"></span>Leergut</span></td>
+              <td>Augsburg</td>
+              <td class="muted">heute, 08:42</td>
+              <td><a class="btn-text btn btn-sm" href="#">Bearbeiten</a></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-3 center-y"><span class="avatar">SP</span><strong>Sina Patel</strong></div></td>
+              <td class="mono">sina.patel@biofresh.de</td>
+              <td><span class="badge ok"><span class="dot"></span>Leergut</span></td>
+              <td>München</td>
+              <td class="muted">heute, 07:55</td>
+              <td><a class="btn-text btn btn-sm" href="#">Bearbeiten</a></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-3 center-y"><span class="avatar">AK</span><strong>Andreas Koppel</strong></div></td>
+              <td class="mono">a.koppel@biofresh.de</td>
+              <td><span class="badge mute"><span class="dot"></span>Dispo</span></td>
+              <td>Augsburg</td>
+              <td class="muted">gestern, 17:21</td>
+              <td><a class="btn-text btn btn-sm" href="#">Bearbeiten</a></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-3 center-y"><span class="avatar">LB</span><strong>Linda Berger</strong></div></td>
+              <td class="mono">linda.berger@biofresh.de</td>
+              <td><span class="badge warn"><span class="dot"></span>Controlling</span></td>
+              <td>Augsburg</td>
+              <td class="muted">vor 2 Tagen</td>
+              <td><a class="btn-text btn btn-sm" href="#">Bearbeiten</a></td>
+            </tr>
+            <tr>
+              <td><div class="flex gap-3 center-y"><span class="avatar">RM</span><strong>Ralf Mehler</strong></div></td>
+              <td class="mono">ralf.mehler@biofresh.de</td>
+              <td><span class="badge ok"><span class="dot"></span>Leergut</span></td>
+              <td>München</td>
+              <td class="muted">vor 4 Tagen</td>
+              <td><a class="btn-text btn btn-sm" href="#">Bearbeiten</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Datenhoheit Info -->
+      <section class="card" style="background: var(--c-paper-warm); border-color: var(--c-line);">
+        <div class="flex gap-4 center-y">
+          <svg class="ic" viewBox="0 0 24 24" style="width:32px; height:32px; flex-shrink:0; color: var(--c-red-600); stroke-width: 1.5;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div>
+            <h3 style="margin: 0 0 4px;">Datenhoheit garantiert</h3>
+            <p class="muted" style="font: var(--t-small); margin: 0; max-width: none;">
+              Keine andere Organisation kann eure Daten einsehen — weder andere Händler, noch andere Abfüller. Selbst dotch-Mitarbeitende sehen nur aggregierte Pool-Statistiken, keine Detail-Bestände.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="footer-thin">
+      <span>dotch · MVP-Mock · Berechtigungsmodell je Organisation frei konfigurierbar</span>
+      <span>do the change.</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

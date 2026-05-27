@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · MVP-Mock · Sitemap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  body { background: var(--c-paper-warm); }
+  .shell { max-width: 1240px; margin: 0 auto; padding: 56px 32px; }
+  .grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 32px; }
+  .card a.go { color: var(--c-red-600); font: var(--t-small); font-weight: 600; }
+  .stack { display:flex; flex-direction:column; gap: 6px; margin-top: 14px; }
+  .stack a { padding: 10px 12px; border:1px solid var(--c-line); border-radius: var(--r-md); text-decoration:none; color: var(--c-ink-900); font: var(--t-small); display:flex; align-items:center; justify-content:space-between; }
+  .stack a:hover { border-color: var(--c-red-600); background: var(--c-red-100); text-decoration: none; }
+  .stack a .ic { color: var(--c-red-600); }
+  .req-card {
+    background: var(--c-card);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    display:flex; gap: 12px; align-items:flex-start;
+  }
+  .req-card .num {
+    font-family: var(--font-mono); font-weight: 600; color: var(--c-red-600);
+    background: var(--c-red-100); padding: 4px 8px; border-radius: var(--r-sm);
+    font-size: 11px;
+  }
+  .req-card .body { flex: 1; }
+  .req-card h4 { margin: 0 0 4px; font: 600 14px/1.3 var(--font-display); }
+  .req-card p { margin: 0; font: var(--t-small); color: var(--c-ink-500); }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Brand bar -->
+  <div class="flex between center-y" style="margin-bottom: 36px;">
+    <div class="flex gap-3 center-y">
+      <span style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px; padding:2px;">
+        <i style="width:7px;height:7px;background:var(--c-red-600);border-radius:50%;"></i>
+        <i style="width:7px;height:7px;background:var(--c-red-600);border-radius:50%;"></i>
+        <i style="width:7px;height:7px;background:var(--c-red-600);border-radius:50%;"></i>
+        <i style="width:7px;height:7px;background:var(--c-red-600);border-radius:50%;"></i>
+        <i style="width:7px;height:7px;background:var(--c-red-600);border-radius:50%;"></i>
+        <i style="width:7px;height:7px;background:var(--c-red-600);border-radius:50%;"></i>
+      </span>
+      <span style="font: 600 32px/1 var(--font-display); letter-spacing:-0.04em;">dotch</span>
+      <span class="tag-mono">MVP-Mock</span>
+    </div>
+    <div class="flex gap-3 center-y">
+      <a class="btn btn-ghost" href="index.html">Zur Login-Seite</a>
+      <span class="tag-mono">v0.1 · Stand 27.05.2026</span>
+    </div>
+  </div>
+
+  <span class="eyebrow">Sitemap · alle Mock-Seiten</span>
+  <h1 style="font: var(--t-display); letter-spacing: var(--ls-display); margin: 8px 0 6px; max-width: 18ch;">Mehrweg <span class="accent">ist Teamarbeit.</span></h1>
+  <p class="lede" style="max-width: 56ch;">
+    Klickbare High-Fidelity-Mocks der dotch-Leergut- und Pfand-Plattform. Aufgebaut nach den beiden Lastenheften (Leergut + Pfand, Stand 30.04.2026).
+  </p>
+
+  <!-- Drei Rollen -->
+  <div class="grid">
+
+    <article class="card">
+      <span class="eyebrow">Rolle 1</span>
+      <h3 style="margin: 6px 0 8px;">Handel · Bio-Großhandel / LEH</h3>
+      <p class="muted" style="font: var(--t-small); margin: 0;">
+        Bestand erfassen, Leergut-Abholung mit einem Klick anmelden, Wareneingang prüfen.
+      </p>
+      <div class="stack">
+        <a href="handel-dashboard.html">Übersicht & Schwellenwerte
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="handel-bestand.html">Bestand & Gebinde-Galerie
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="handel-anmeldung.html">Leergut-Abholung anmelden
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="clearing-app.html">Wareneingang Clearing-App
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="eyebrow">Rolle 2</span>
+      <h3 style="margin: 6px 0 8px;">Abfüller · Marken & Molkereien</h3>
+      <p class="muted" style="font: var(--t-small); margin: 0;">
+        Deutschlandweite Sicht aller Leergut-Bestände, Reservierungen, Pfand-Modul, CO₂-Reporting.
+      </p>
+      <div class="stack">
+        <a href="abfueller-dashboard.html">Übersicht & Deutschlandkarte
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="abfueller-pfand.html">Pfand-Modul · Mengen melden
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="abfueller-reporting.html">CO₂- / CSR-Reporting
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="eyebrow">Rolle 3</span>
+      <h3 style="margin: 6px 0 8px;">dotch intern</h3>
+      <p class="muted" style="font: var(--t-small); margin: 0;">
+        Plattform-Übersicht, Mengen je Händler und Kalenderwoche, Pool-Verteilung, System-Health.
+      </p>
+      <div class="stack">
+        <a href="dotch-intern.html">Operations-Übersicht
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="admin-accounts.html">Accounts & Rollen (Org-Admin)
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="index.html">Login / Rollenwechsel
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Anforderungs-Map -->
+  <h2 style="margin: 56px 0 12px; font: var(--t-h2); letter-spacing: var(--ls-h-tight);">
+    Was vom <span class="accent">Lastenheft</span> ist im Mock?
+  </h2>
+  <p class="muted" style="font: var(--t-small);">Zuordnung der wichtigsten MVP-Anforderungen zu den Seiten dieses Mocks.</p>
+
+  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px;">
+
+    <div class="req-card">
+      <span class="num">L 3.1</span>
+      <div class="body">
+        <h4>Web-Interface, keine Installation</h4>
+        <p>Alle Mocks öffnen direkt im Browser — siehe Login & jede Rollen-Ansicht.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 3.5</span>
+      <div class="body">
+        <h4>Bestandsübersicht & Forecast je Gebinde</h4>
+        <p>Auf <a href="handel-bestand.html">Bestand & Gebinde</a> mit 8-Wochen-Forecast, je Standort auf <a href="abfueller-dashboard.html">Abfüller-Karte</a>.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 3.6</span>
+      <div class="body">
+        <h4>Eingeschränkte Sichtbarkeit (z. B. Veltins)</h4>
+        <p>Auf <a href="handel-bestand.html">Bestand</a>: VEL-500 nur für Veltins sichtbar, YOG-250 nur Pool-Molkereien.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 3.7</span>
+      <div class="body">
+        <h4>Reservierung von Mengen</h4>
+        <p>Abfüller reserviert auf <a href="abfueller-dashboard.html">Karte</a>, Handel bestätigt/ablehnt auf <a href="handel-dashboard.html">Übersicht</a> (mit Grund offene Rechnung).</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 3.8 · P 3.5</span>
+      <div class="body">
+        <h4>Mehrere Accounts pro Organisation · Rollen</h4>
+        <p>Berechtigungsmatrix auf <a href="admin-accounts.html">Accounts & Rollen</a> — Admin, Leergut, Dispo, Controlling.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 3.9</span>
+      <div class="body">
+        <h4>Mengen-Clearing-App Wareneingang</h4>
+        <p>Mobile-orientierte App auf <a href="clearing-app.html">Clearing</a> mit Scanner, Tastatur, Differenz-Erfassung.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 3.10.1</span>
+      <div class="body">
+        <h4>Verteilungsanalyse für Poolbetreiber</h4>
+        <p>MMP-Pool Tabelle auf <a href="dotch-intern.html">dotch intern</a>: Mengen je Molkerei mit Anteilen.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 3.10.2 · P 3.9.1</span>
+      <div class="body">
+        <h4>CO₂-Reporting automatisch monatlich</h4>
+        <p>Vollständiges Reporting auf <a href="abfueller-reporting.html">CSR-Reporting</a> mit Aufschlüsselung je Gebinde + Export.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 3.12 · P 3.10</span>
+      <div class="body">
+        <h4>Mehrsprachigkeit (DE/EN/FR/NL/PL/TR/AR/RU)</h4>
+        <p>Language-Pill im Header jeder Seite — DE als Standard mit "Du"-Ansprache.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 3.14</span>
+      <div class="body">
+        <h4>E-Mail-Benachrichtigung Schwellenwert</h4>
+        <p>Banner auf <a href="handel-dashboard.html">Handel-Dashboard</a>: "3 Schwellenwerte erreicht", Sammel-Anmeldung mit Klick.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 4.1 · P 4.1</span>
+      <div class="body">
+        <h4>Einfache Bedienbarkeit · auch für ältere Menschen</h4>
+        <p>Große Schriften, klare CTAs, Bestätigungs-Schritte, Mobile-Tastatur auf Clearing-App.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">L 4.2 · P 4.2</span>
+      <div class="body">
+        <h4>Datenhoheit · keine Cross-Org-Sicht</h4>
+        <p>Hinweis auf <a href="admin-accounts.html">Accounts</a>: Organisationen sehen sich gegenseitig nicht, dotch nur aggregiert.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">P 3.6</span>
+      <div class="body">
+        <h4>Einfache Pfand-Mengen-Eingabe</h4>
+        <p>Simples Formular auf <a href="abfueller-pfand.html">Pfand-Modul</a>: Datum, Gebinde, Menge, Empfänger → fertig.</p>
+      </div>
+    </div>
+    <div class="req-card">
+      <span class="num">P 3.8</span>
+      <div class="body">
+        <h4>Übersichtsseite für dotch · Mengen je Händler & KW</h4>
+        <p>Heatmap auf <a href="dotch-intern.html">dotch intern</a>: 7 Händler × 8 KWs, Wochen- & Standort-Summen.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--c-line); display:flex; justify-content:space-between; font: var(--t-caption); color: var(--c-ink-500);">
+    <span>dotch · MVP-Mock · gebaut auf Basis der Lastenhefte Leergut & Pfand vom 30.04.2026</span>
+    <span>do the change.</span>
+  </div>
+
+</div>
+</body>
+</html>

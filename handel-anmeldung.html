@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · Handel · Leergut-Abholung anmelden</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="word"><span class="cluster"><i></i><i></i><i></i><i></i><i></i><i></i></span>dotch</span>
+      <span class="tag">handel</span>
+    </div>
+    <nav>
+      <span class="nav-section">Leergut</span>
+      <a href="handel-dashboard.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Übersicht
+      </a>
+      <a href="handel-bestand.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        Bestand & Gebinde
+      </a>
+      <a href="handel-anmeldung.html" class="nav-item active">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        Abholungen anmelden
+      </a>
+      <a href="clearing-app.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/></svg>
+        Wareneingang Clearing
+      </a>
+      <span class="nav-section">Auswertung</span>
+      <a href="abfueller-reporting.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/></svg>
+        CO₂-Reporting
+      </a>
+      <span class="nav-section">Verwaltung</span>
+      <a href="admin-accounts.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/></svg>
+        Accounts & Rollen
+      </a>
+    </nav>
+    <div class="bottom">
+      <a href="index.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/></svg>
+        Abmelden
+      </a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="crumbs">
+        <a href="handel-dashboard.html" style="color: var(--c-ink-500);">Übersicht</a>
+        <span>·</span>
+        <strong>Leergut-Abholung anmelden</strong>
+      </div>
+      <div class="actions">
+        <div class="lang-pill"><button class="on">DE</button><button>EN</button></div>
+        <span class="avatar">MK</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">Neue Anmeldung · Schritt 1 von 3</span>
+          <h1>Leergut anmelden — <span class="accent">mit einem Klick.</span></h1>
+          <p class="sub">Wähle Gebinde und Menge — wir benachrichtigen die zuständigen Abfüller automatisch per E-Mail.</p>
+        </div>
+        <div class="right">
+          <a class="btn btn-ghost" href="handel-dashboard.html">Abbrechen</a>
+        </div>
+      </div>
+
+      <!-- Stepper -->
+      <div class="flex gap-2" style="margin-top: -8px;">
+        <div style="flex:1; display:flex; gap:8px; align-items:center;">
+          <span style="width:24px; height:24px; border-radius:50%; background: var(--c-red-600); color:#FFF; font: 600 12px/1 var(--font-sans); display:inline-flex; align-items:center; justify-content:center;">1</span>
+          <span style="font: 600 13px/1.2 var(--font-sans);">Gebinde & Menge</span>
+          <span style="flex:1; height:2px; background: var(--c-line);"></span>
+        </div>
+        <div style="flex:1; display:flex; gap:8px; align-items:center;">
+          <span style="width:24px; height:24px; border-radius:50%; background: var(--c-paper-deep); color: var(--c-ink-500); font: 600 12px/1 var(--font-sans); display:inline-flex; align-items:center; justify-content:center;">2</span>
+          <span style="font: 500 13px/1.2 var(--font-sans); color: var(--c-ink-500);">Datum & Abholort</span>
+          <span style="flex:1; height:2px; background: var(--c-line);"></span>
+        </div>
+        <div style="flex:1; display:flex; gap:8px; align-items:center;">
+          <span style="width:24px; height:24px; border-radius:50%; background: var(--c-paper-deep); color: var(--c-ink-500); font: 600 12px/1 var(--font-sans); display:inline-flex; align-items:center; justify-content:center;">3</span>
+          <span style="font: 500 13px/1.2 var(--font-sans); color: var(--c-ink-500);">Bestätigen & senden</span>
+        </div>
+      </div>
+
+      <div class="two-col">
+
+        <!-- Linke Seite: Formular -->
+        <section class="card">
+          <span class="meta" style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--c-ink-500);">Gebinde wählen</span>
+          <h3 style="margin: 6px 0 18px;">Drei Gebinde haben den Schwellenwert erreicht</h3>
+
+          <!-- Gebinde 1 -->
+          <article style="display:grid; grid-template-columns: auto 1fr auto auto; gap:14px; padding: 14px; border:1px solid var(--c-red-300); border-radius: var(--r-md); background: var(--c-red-100); margin-bottom: 10px;">
+            <input type="checkbox" checked style="margin-top: 4px; accent-color: var(--c-red-600);">
+            <div>
+              <div style="font: 600 14px/1.3 var(--font-display);">0,5 L Ölflasche · Standard</div>
+              <div class="muted" style="font: var(--t-caption);">OIL-500 · Bestand 8.420 · empfohlen für: Rapunzel, BIO PLANÈTE, Byodo</div>
+            </div>
+            <div class="field" style="width:120px;">
+              <label>Menge</label>
+              <input type="number" value="5400">
+            </div>
+            <span class="badge ok" style="align-self:center;"><span class="dot"></span>über Schwelle</span>
+          </article>
+
+          <!-- Gebinde 2 -->
+          <article style="display:grid; grid-template-columns: auto 1fr auto auto; gap:14px; padding: 14px; border:1px solid var(--c-red-300); border-radius: var(--r-md); background: var(--c-red-100); margin-bottom: 10px;">
+            <input type="checkbox" checked style="margin-top: 4px; accent-color: var(--c-red-600);">
+            <div>
+              <div style="font: 600 14px/1.3 var(--font-display);">0,7 L Saftflasche Bio</div>
+              <div class="muted" style="font: var(--t-caption);">JUI-700 · Bestand 6.180 · empfohlen für: Voelkel, Sonnentor, Eos</div>
+            </div>
+            <div class="field" style="width:120px;">
+              <label>Menge</label>
+              <input type="number" value="3200">
+            </div>
+            <span class="badge ok" style="align-self:center;"><span class="dot"></span>über Schwelle</span>
+          </article>
+
+          <!-- Gebinde 3 -->
+          <article style="display:grid; grid-template-columns: auto 1fr auto auto; gap:14px; padding: 14px; border:1px solid var(--c-red-300); border-radius: var(--r-md); background: var(--c-red-100); margin-bottom: 10px;">
+            <input type="checkbox" checked style="margin-top: 4px; accent-color: var(--c-red-600);">
+            <div>
+              <div style="font: 600 14px/1.3 var(--font-display);">370 ml Konfitürenglas</div>
+              <div class="muted" style="font: var(--t-caption);">JAR-370 · Bestand 11.260 · empfohlen für: Zwergenwiese, Allos</div>
+            </div>
+            <div class="field" style="width:120px;">
+              <label>Menge</label>
+              <input type="number" value="7200">
+            </div>
+            <span class="badge ok" style="align-self:center;"><span class="dot"></span>über Schwelle</span>
+          </article>
+
+          <hr>
+
+          <p class="muted" style="font: var(--t-small);">Weitere Gebinde optional hinzufügen:</p>
+          <article style="display:grid; grid-template-columns: auto 1fr auto auto; gap:14px; padding: 14px; border:1px solid var(--c-line); border-radius: var(--r-md); margin-bottom: 10px;">
+            <input type="checkbox" style="margin-top: 4px; accent-color: var(--c-red-600);">
+            <div>
+              <div style="font: 600 14px/1.3 var(--font-display);">250 ml Joghurtglas MMP</div>
+              <div class="muted" style="font: var(--t-caption);">YOG-250 · Bestand 7.940 · Schwelle: 8.000</div>
+            </div>
+            <div class="field" style="width:120px;">
+              <label>Menge</label>
+              <input type="number" placeholder="0">
+            </div>
+            <span class="badge warn" style="align-self:center;"><span class="dot"></span>unter Schwelle</span>
+          </article>
+
+          <button class="btn btn-ghost" style="margin-top: 4px;">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Gebinde hinzufügen
+          </button>
+
+        </section>
+
+        <!-- Rechte Seite: Summary -->
+        <aside style="display:flex; flex-direction:column; gap:16px;">
+
+          <section class="card">
+            <span class="meta" style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: var(--c-ink-500);">Zusammenfassung</span>
+            <h3 style="margin: 6px 0 14px;">3 Gebinde · 15.800 Stück</h3>
+
+            <div style="display:flex; flex-direction:column; gap:10px; font: var(--t-small);">
+              <div class="flex between"><span>0,5 L Ölflasche</span><strong class="mono">5.400</strong></div>
+              <div class="flex between"><span>0,7 L Saftflasche</span><strong class="mono">3.200</strong></div>
+              <div class="flex between"><span>370 ml Konfitürenglas</span><strong class="mono">7.200</strong></div>
+              <hr>
+              <div class="flex between"><span class="muted">Geschätztes Gewicht</span><strong class="mono">3.840 kg</strong></div>
+              <div class="flex between"><span class="muted">Empfohlene Paletten</span><strong class="mono">8 EUR</strong></div>
+              <div class="flex between"><span class="muted">CO₂-Einsparung</span><strong class="mono" style="color: var(--c-red-600);">218 kg CO₂e</strong></div>
+            </div>
+          </section>
+
+          <section class="card">
+            <span class="meta" style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: var(--c-ink-500);">Empfangende Abfüller (auto)</span>
+            <h3 style="margin: 6px 0 14px;">5 Abfüller werden benachrichtigt</h3>
+            <div style="display:flex; flex-direction:column; gap: 8px; font: var(--t-small);">
+              <div class="flex gap-2 center-y"><span class="avatar" style="width:28px;height:28px;font-size:11px;">RW</span> Rapunzel Naturkost</div>
+              <div class="flex gap-2 center-y"><span class="avatar" style="width:28px;height:28px;font-size:11px;">BP</span> BIO PLANÈTE</div>
+              <div class="flex gap-2 center-y"><span class="avatar" style="width:28px;height:28px;font-size:11px;">BY</span> Byodo</div>
+              <div class="flex gap-2 center-y"><span class="avatar" style="width:28px;height:28px;font-size:11px;">SO</span> Sonnentor Saftmanufaktur</div>
+              <div class="flex gap-2 center-y"><span class="avatar" style="width:28px;height:28px;font-size:11px;">VO</span> Voelkel</div>
+            </div>
+            <p class="muted" style="font: var(--t-caption); margin-top: 12px;">
+              Eingeschränkt sichtbare Gebinde werden nur an die zugewiesenen Abfüller verschickt (z. B. Veltins → nur Veltins).
+            </p>
+          </section>
+
+          <button class="btn btn-primary" style="justify-content:center;">
+            Weiter zu Schritt 2: Datum & Abholort
+            <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </aside>
+
+      </div>
+
+    </div>
+
+    <footer class="footer-thin">
+      <span>dotch · MVP-Mock · Anmeldung wird automatisch an betroffene Abfüller versendet</span>
+      <span>do the change.</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

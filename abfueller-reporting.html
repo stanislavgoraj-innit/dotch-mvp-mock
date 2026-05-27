@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · CO₂-Reporting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="word"><span class="cluster"><i></i><i></i><i></i><i></i><i></i><i></i></span>dotch</span>
+      <span class="tag">abfüller</span>
+    </div>
+    <nav>
+      <span class="nav-section">Leergut</span>
+      <a href="abfueller-dashboard.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Übersicht & Karte
+      </a>
+      <span class="nav-section">Pfand-Modul</span>
+      <a href="abfueller-pfand.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Mengen melden
+      </a>
+      <span class="nav-section">Auswertung</span>
+      <a href="abfueller-reporting.html" class="nav-item active">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13a7 7 0 0 1 7-7c2 0 4 1 5 3 1 2 1 4 0 6"/></svg>
+        CO₂-Reporting
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/></svg>
+        Verteilungsanalyse
+      </a>
+      <span class="nav-section">Verwaltung</span>
+      <a href="admin-accounts.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/></svg>
+        Accounts & Rollen
+      </a>
+    </nav>
+    <div class="bottom">
+      <a href="index.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/></svg>
+        Abmelden
+      </a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="crumbs"><strong>Rapunzel Naturkost</strong><span>·</span><span>CSR · CO₂-Reporting</span></div>
+      <div class="actions">
+        <div class="lang-pill"><button class="on">DE</button><button>EN</button></div>
+        <span class="avatar">JS</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">Nachhaltigkeits-Reporting · Mai 2026</span>
+          <h1>Dein <span class="accent">Impact</span> in Zahlen.</h1>
+          <p class="sub">Automatisch erstellt aus Gebindeart, Menge und Lieferdistanz. Direkt für CSR-Berichte und Audits exportierbar.</p>
+        </div>
+        <div class="right">
+          <button class="btn btn-ghost">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+            Mai 2026 ▾
+          </button>
+          <button class="btn btn-ghost">PDF</button>
+          <button class="btn btn-primary">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            CSV-Export
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero stat -->
+      <section class="card" style="background: var(--c-red-800); color:#FFF; border:0;">
+        <span class="eyebrow" style="color: var(--c-red-300);">YTD · 1. Jan – 27. Mai 2026</span>
+        <div style="display:grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 36px; align-items: end; margin-top: 10px;">
+          <div>
+            <div style="font: 500 18px/1.2 var(--font-sans); color: rgba(255,255,255,0.7); margin-bottom: 6px;">CO₂ eingespart vs. Einweg</div>
+            <div style="font: 500 64px/1 var(--font-display); letter-spacing: var(--ls-display); color:#FFF;">82,4 t</div>
+            <div style="font: var(--t-small); color: rgba(255,255,255,0.7); margin-top: 8px;">≈ Jahresemission von 56 PKW (Durchschnitt DE)</div>
+          </div>
+          <div>
+            <div style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: rgba(255,255,255,0.6);">Umlauf-Rotationen</div>
+            <div style="font: 500 32px/1.1 var(--font-display); color: var(--c-red-300); margin-top: 6px;">3,4 ×</div>
+            <div style="font: var(--t-caption); color: rgba(255,255,255,0.5);">je Gebinde · YTD</div>
+          </div>
+          <div>
+            <div style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: rgba(255,255,255,0.6);">Mehrweg-Quote</div>
+            <div style="font: 500 32px/1.1 var(--font-display); color: var(--c-red-300); margin-top: 6px;">94,2 %</div>
+            <div style="font: var(--t-caption); color: rgba(255,255,255,0.5);">Rücklauf · 90 Tage rollierend</div>
+          </div>
+          <div>
+            <div style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: rgba(255,255,255,0.6);">Lieferdistanz Ø</div>
+            <div style="font: 500 32px/1.1 var(--font-display); color: var(--c-red-300); margin-top: 6px;">284 km</div>
+            <div style="font: var(--t-caption); color: rgba(255,255,255,0.5);">je Lieferung</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="two-col">
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <span class="meta">Monatsverlauf</span>
+              <h3>CO₂-Einsparung in t · 12 Monate</h3>
+            </div>
+            <div class="lang-pill" style="background: var(--c-paper-deep);">
+              <button class="on">CO₂</button>
+              <button>Rücklauf %</button>
+            </div>
+          </div>
+          <div class="bars">
+            <div class="bar"     style="height: 42%;" data-val="4,1"></div>
+            <div class="bar alt" style="height: 50%;" data-val="4,9"></div>
+            <div class="bar"     style="height: 56%;" data-val="5,5"></div>
+            <div class="bar alt" style="height: 60%;" data-val="6,0"></div>
+            <div class="bar"     style="height: 64%;" data-val="6,4"></div>
+            <div class="bar alt" style="height: 72%;" data-val="7,2"></div>
+            <div class="bar"     style="height: 78%;" data-val="7,8"></div>
+            <div class="bar alt" style="height: 70%;" data-val="6,9"></div>
+            <div class="bar"     style="height: 75%;" data-val="7,4"></div>
+            <div class="bar alt" style="height: 80%;" data-val="8,0"></div>
+            <div class="bar"     style="height: 84%;" data-val="8,2"></div>
+            <div class="bar"     style="height: 88%;" data-val="9,0"></div>
+          </div>
+          <div class="bars-x" style="--cols: 12;">
+            <span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Okt</span><span>Nov</span><span>Dez</span><span>Jan</span><span>Feb</span><span>Mär</span><span>Apr</span><span><strong style="color:var(--c-red-600)">Mai</strong></span>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <span class="meta">Aufschlüsselung · YTD</span>
+              <h3>CO₂-Beitrag je Gebinde</h3>
+            </div>
+          </div>
+          <table class="data">
+            <thead>
+              <tr><th>Gebinde</th><th class="num">Menge</th><th class="num">CO₂ Einsp.</th><th class="num">je Stk.</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0,5 L Ölflasche</td>
+                <td class="num">128.400</td>
+                <td class="num">28,4 t</td>
+                <td class="num">221 g</td>
+              </tr>
+              <tr>
+                <td>0,7 L Saftflasche</td>
+                <td class="num">84.200</td>
+                <td class="num">22,1 t</td>
+                <td class="num">262 g</td>
+              </tr>
+              <tr>
+                <td>370 ml Konfitürenglas</td>
+                <td class="num">96.800</td>
+                <td class="num">18,9 t</td>
+                <td class="num">195 g</td>
+              </tr>
+              <tr>
+                <td>250 ml Joghurtglas MMP</td>
+                <td class="num">42.000</td>
+                <td class="num">8,1 t</td>
+                <td class="num">193 g</td>
+              </tr>
+              <tr>
+                <td>0,33 L Bügelflasche</td>
+                <td class="num">24.600</td>
+                <td class="num">4,9 t</td>
+                <td class="num">199 g</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+      </div>
+
+      <!-- Cycle visualization -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <span class="meta">dotch-Kreislauf</span>
+            <h3>Wo wird CO₂ <span class="accent">eingespart?</span></h3>
+          </div>
+        </div>
+        <ul class="cycle-list">
+          <li><span class="step">01 Abfüllung</span><span class="name">Glas wiederverwendet · 0 % neue Schmelze</span></li>
+          <li><span class="step">02 Verkauf</span><span class="name">an 18 Handelspartner DE/AT</span></li>
+          <li><span class="step">03 Nutzung</span><span class="name">durch Konsument:innen</span></li>
+          <li><span class="step">04 Rückgabe</span><span class="name">an Handelspartner</span></li>
+          <li><span class="step">05 Sammlung</span><span class="name">& Sortierung im Pool</span></li>
+          <li><span class="step">06 Reinigung</span><span class="name">3,4 × Rotation Ø</span></li>
+        </ul>
+      </section>
+
+    </div>
+
+    <footer class="footer-thin">
+      <span>dotch · MVP-Mock · CO₂-Werte basieren auf Distanz-, Gebinde- und Mengen-Daten</span>
+      <span>do the change.</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · Leergut- & Pfand-Plattform · Anmeldung</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .role-grid { grid-template-columns: 1fr; }
+</style>
+</head>
+<body>
+
+<div class="login-shell">
+
+  <!-- Linke Seite: Brand -->
+  <section class="visual">
+    <div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px; padding:2px;">
+          <i style="width:7px;height:7px;background:#FFF;border-radius:50%;"></i>
+          <i style="width:7px;height:7px;background:#FFF;border-radius:50%;"></i>
+          <i style="width:7px;height:7px;background:#FFF;border-radius:50%;"></i>
+          <i style="width:7px;height:7px;background:#FFF;border-radius:50%;"></i>
+          <i style="width:7px;height:7px;background:#FFF;border-radius:50%;"></i>
+          <i style="width:7px;height:7px;background:#FFF;border-radius:50%;"></i>
+        </span>
+        <span style="font: 600 28px/1 var(--font-display); letter-spacing:-0.04em;">dotch</span>
+        <span style="font: 600 10px/1 var(--font-sans); letter-spacing:0.18em; text-transform:uppercase; color: rgba(255,255,255,0.6); padding-left:8px; border-left:1px solid rgba(255,255,255,0.2);">the reuse company</span>
+      </div>
+    </div>
+
+    <div>
+      <span class="eyebrow" style="color: var(--c-red-300);">Leergut- & Pfand-Plattform</span>
+      <h1>Mehrweg <em>ist Teamarbeit.</em></h1>
+      <p style="color: rgba(255,255,255,0.78); max-width: 42ch; margin-top: 20px; font: var(--t-lede);">
+        Eine Plattform für Handel, Abfüller und dotch — damit Leergut nicht mehr per Telefon und E-Mail zwischen Lagern reist, sondern mit einem Klick.
+      </p>
+
+      <ul class="cycle-list" style="margin-top: 40px; grid-template-columns: repeat(3, 1fr); gap: 6px;">
+        <li style="background: rgba(255,255,255,0.06); border-left-color: var(--c-red-300);">
+          <span class="step" style="color: var(--c-red-300);">01 Abfüllung</span>
+          <span class="name" style="color: #FFF;">Vollgut entsteht</span>
+        </li>
+        <li style="background: rgba(255,255,255,0.06); border-left-color: var(--c-red-300);">
+          <span class="step" style="color: var(--c-red-300);">02 Verkauf</span>
+          <span class="name" style="color: #FFF;">Handel beliefert</span>
+        </li>
+        <li style="background: rgba(255,255,255,0.06); border-left-color: var(--c-red-300);">
+          <span class="step" style="color: var(--c-red-300);">03 Nutzung</span>
+          <span class="name" style="color: #FFF;">bei Konsument:innen</span>
+        </li>
+        <li style="background: rgba(255,255,255,0.06); border-left-color: var(--c-red-300);">
+          <span class="step" style="color: var(--c-red-300);">04 Rückgabe</span>
+          <span class="name" style="color: #FFF;">Leergut zurück</span>
+        </li>
+        <li style="background: rgba(255,255,255,0.06); border-left-color: var(--c-red-300);">
+          <span class="step" style="color: var(--c-red-300);">05 Sammlung</span>
+          <span class="name" style="color: #FFF;">& Sortierung</span>
+        </li>
+        <li style="background: rgba(255,255,255,0.06); border-left-color: var(--c-red-300);">
+          <span class="step" style="color: var(--c-red-300);">06 Reinigung</span>
+          <span class="name" style="color: #FFF;">Glas startet neu</span>
+        </li>
+      </ul>
+    </div>
+
+    <div style="display:flex; gap:24px; font: var(--t-caption); color: rgba(255,255,255,0.55);">
+      <span>do the change.</span>
+      <span>v0.1 · MVP-Mock</span>
+    </div>
+
+    <span class="blob"></span>
+  </section>
+
+  <!-- Rechte Seite: Login + Rollenwahl -->
+  <section class="form-side">
+    <div class="form-card">
+      <span class="eyebrow">Anmelden</span>
+      <h2 style="margin: 8px 0 24px;">Willkommen zurück, <span class="accent">guten Tag.</span></h2>
+
+      <form>
+        <div class="field" style="margin-bottom: 14px;">
+          <label for="mail">E-Mail-Adresse</label>
+          <input type="email" id="mail" value="lager@biofresh-grosshandel.de" />
+        </div>
+        <div class="field" style="margin-bottom: 14px;">
+          <label for="pw">Passwort</label>
+          <input type="password" id="pw" value="••••••••••" />
+        </div>
+        <div class="flex between center-y" style="margin-bottom: 18px;">
+          <label style="display:flex; gap:8px; align-items:center; font: var(--t-small); color: var(--c-ink-500);">
+            <input type="checkbox" checked> Angemeldet bleiben
+          </label>
+          <a href="#" class="btn-text" style="font: var(--t-caption);">Passwort vergessen?</a>
+        </div>
+        <a class="btn btn-primary" href="handel-dashboard.html" style="width:100%; justify-content:center;">
+          Anmelden
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </form>
+
+      <div style="margin-top: 32px;">
+        <span class="eyebrow" style="margin-bottom: 4px;">Demo · Rolle wählen</span>
+        <p class="muted" style="font: var(--t-small); margin: 0 0 8px;">
+          Mockup-Modus: Direkt in die jeweilige Rollen-Ansicht springen.
+        </p>
+        <div class="role-grid">
+          <a href="handel-dashboard.html" class="role-card">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+            <span class="name">Handel · Bio-Großhändler</span>
+            <span class="desc">Bestand erfassen · Leergut-Abholung mit einem Klick anmelden · CSR-Export</span>
+          </a>
+          <a href="abfueller-dashboard.html" class="role-card">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M10 2v4"/><path d="M14 2v4"/><rect x="6" y="6" width="12" height="16" rx="2"/><path d="M6 12h12"/></svg>
+            <span class="name">Abfüller · Saftmanufaktur</span>
+            <span class="desc">Deutschlandweite Leergut-Bestände · Reservierungen · Pfand-Mengen melden</span>
+          </a>
+          <a href="dotch-intern.html" class="role-card">
+            <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></svg>
+            <span class="name">dotch intern</span>
+            <span class="desc">Übersicht alle Händler & Abfüller · Pfand-Clearing je Kalenderwoche · System-Admin</span>
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; display:flex; gap:8px; align-items:center; font: var(--t-caption); color: var(--c-ink-500);">
+        <span>Sprache:</span>
+        <div class="lang-pill">
+          <button class="on">DE</button>
+          <button>EN</button>
+          <button>FR</button>
+          <button>NL</button>
+          <button>PL</button>
+          <button>TR</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

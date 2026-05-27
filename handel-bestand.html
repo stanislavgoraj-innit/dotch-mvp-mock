@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · Handel · Bestand & Gebinde</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="word"><span class="cluster"><i></i><i></i><i></i><i></i><i></i><i></i></span>dotch</span>
+      <span class="tag">handel</span>
+    </div>
+    <nav>
+      <span class="nav-section">Leergut</span>
+      <a href="handel-dashboard.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Übersicht
+      </a>
+      <a href="handel-bestand.html" class="nav-item active">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        Bestand & Gebinde
+      </a>
+      <a href="handel-anmeldung.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        Abholungen anmelden
+      </a>
+      <a href="clearing-app.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/></svg>
+        Wareneingang Clearing
+      </a>
+      <span class="nav-section">Auswertung</span>
+      <a href="abfueller-reporting.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
+        CO₂-Reporting
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+        Forecast
+      </a>
+      <span class="nav-section">Verwaltung</span>
+      <a href="admin-accounts.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/></svg>
+        Accounts & Rollen
+      </a>
+    </nav>
+    <div class="bottom">
+      <a href="index.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Abmelden
+      </a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="crumbs"><strong>BioFresh Großhandel Süd</strong><span>·</span><span>Bestand & Gebinde</span></div>
+      <div class="actions">
+        <input class="search" type="search" placeholder="Suche: Gebinde, Code…" />
+        <div class="lang-pill"><button class="on">DE</button><button>EN</button></div>
+        <span class="avatar">MK</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">Lager Augsburg · Live-Bestand</span>
+          <h1>Alle Gebinde <span class="accent">auf einen Blick.</span></h1>
+          <p class="sub">12 Gebindearten · 6 davon mit eingeschränkter Sichtbarkeit für bestimmte Abfüller.</p>
+        </div>
+        <div class="right">
+          <button class="btn btn-ghost">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            CSV-Export
+          </button>
+          <a class="btn btn-primary" href="handel-anmeldung.html">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Abholung anmelden
+          </a>
+        </div>
+      </div>
+
+      <!-- Toolbar / Filter -->
+      <div class="toolbar">
+        <strong style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: var(--c-ink-500);">Filter:</strong>
+        <button class="chip on">Alle (12)</button>
+        <button class="chip">Flaschen (7)</button>
+        <button class="chip">Gläser (5)</button>
+        <button class="chip">über Schwelle (5)</button>
+        <button class="chip">unter Schwelle (1)</button>
+        <button class="chip">eingeschränkt sichtbar (3)</button>
+        <span style="flex:1;"></span>
+        <span class="tag-mono">Stand: heute 09:14</span>
+      </div>
+
+      <!-- Gebinde-Karten Galerie -->
+      <div class="three-col">
+        <article class="card" style="display:flex; flex-direction:column; gap:10px;">
+          <div class="flex between center-y">
+            <span class="tag-mono">OIL-500</span>
+            <span class="badge ok"><span class="dot"></span>Abholung empfohlen</span>
+          </div>
+          <h3 style="margin: 6px 0 0;">0,5 L Ölflasche · Standard</h3>
+          <p class="muted" style="font: var(--t-small); margin: 0;">Standardflasche für Speiseöl. Sichtbar für alle Abfüller.</p>
+          <div class="flex between center-y" style="margin-top:8px;">
+            <div>
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Bestand</div>
+              <div style="font: 500 28px/1 var(--font-display); color: var(--c-red-600);">8.420</div>
+            </div>
+            <div class="right">
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Schwelle</div>
+              <div style="font: 500 18px/1 var(--font-display);">5.000</div>
+            </div>
+          </div>
+          <div style="height:6px; background: var(--c-paper-deep); border-radius: var(--r-pill); overflow:hidden;">
+            <div style="width: 84%; height: 100%; background: var(--c-red-600);"></div>
+          </div>
+          <div class="flex between center-y">
+            <a class="btn-text btn btn-sm" href="#">Historie ansehen</a>
+            <a class="btn btn-primary btn-sm" href="handel-anmeldung.html">Anmelden</a>
+          </div>
+        </article>
+
+        <article class="card" style="display:flex; flex-direction:column; gap:10px;">
+          <div class="flex between center-y">
+            <span class="tag-mono">JUI-700</span>
+            <span class="badge ok"><span class="dot"></span>Abholung empfohlen</span>
+          </div>
+          <h3 style="margin: 6px 0 0;">0,7 L Saftflasche · Bio</h3>
+          <p class="muted" style="font: var(--t-small); margin: 0;">Für Bio-Säfte und Sirupe. Sichtbar für alle Abfüller.</p>
+          <div class="flex between center-y" style="margin-top:8px;">
+            <div>
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Bestand</div>
+              <div style="font: 500 28px/1 var(--font-display); color: var(--c-red-600);">6.180</div>
+            </div>
+            <div class="right">
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Schwelle</div>
+              <div style="font: 500 18px/1 var(--font-display);">4.000</div>
+            </div>
+          </div>
+          <div style="height:6px; background: var(--c-paper-deep); border-radius: var(--r-pill); overflow:hidden;">
+            <div style="width: 78%; height: 100%; background: var(--c-red-600);"></div>
+          </div>
+          <div class="flex between center-y">
+            <a class="btn-text btn btn-sm" href="#">Historie ansehen</a>
+            <a class="btn btn-primary btn-sm" href="handel-anmeldung.html">Anmelden</a>
+          </div>
+        </article>
+
+        <article class="card" style="display:flex; flex-direction:column; gap:10px;">
+          <div class="flex between center-y">
+            <span class="tag-mono">JAR-370</span>
+            <span class="badge ok"><span class="dot"></span>Abholung empfohlen</span>
+          </div>
+          <h3 style="margin: 6px 0 0;">370 ml Konfitürenglas</h3>
+          <p class="muted" style="font: var(--t-small); margin: 0;">Universal-Glas für Konfitüren, Honig, Aufstriche.</p>
+          <div class="flex between center-y" style="margin-top:8px;">
+            <div>
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Bestand</div>
+              <div style="font: 500 28px/1 var(--font-display); color: var(--c-red-600);">11.260</div>
+            </div>
+            <div class="right">
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Schwelle</div>
+              <div style="font: 500 18px/1 var(--font-display);">6.000</div>
+            </div>
+          </div>
+          <div style="height:6px; background: var(--c-paper-deep); border-radius: var(--r-pill); overflow:hidden;">
+            <div style="width: 92%; height: 100%; background: var(--c-red-600);"></div>
+          </div>
+          <div class="flex between center-y">
+            <a class="btn-text btn btn-sm" href="#">Historie ansehen</a>
+            <a class="btn btn-primary btn-sm" href="handel-anmeldung.html">Anmelden</a>
+          </div>
+        </article>
+
+        <article class="card" style="display:flex; flex-direction:column; gap:10px;">
+          <div class="flex between center-y">
+            <span class="tag-mono">VEL-500</span>
+            <span class="badge info"><span class="dot"></span>nur Veltins</span>
+          </div>
+          <h3 style="margin: 6px 0 0;">500 ml Veltins-Flasche</h3>
+          <p class="muted" style="font: var(--t-small); margin: 0;">Eigentums-Gebinde mit Gravur. Nur für Veltins sichtbar.</p>
+          <div class="flex between center-y" style="margin-top:8px;">
+            <div>
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Bestand</div>
+              <div style="font: 500 28px/1 var(--font-display);">2.840</div>
+            </div>
+            <div class="right">
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Schwelle</div>
+              <div style="font: 500 18px/1 var(--font-display);">4.000</div>
+            </div>
+          </div>
+          <div style="height:6px; background: var(--c-paper-deep); border-radius: var(--r-pill); overflow:hidden;">
+            <div style="width: 60%; height: 100%; background: var(--c-ink-300);"></div>
+          </div>
+          <div class="flex between center-y">
+            <a class="btn-text btn btn-sm" href="#">Sichtbarkeit verwalten</a>
+            <span class="muted" style="font: var(--t-caption);">im Soll</span>
+          </div>
+        </article>
+
+        <article class="card" style="display:flex; flex-direction:column; gap:10px;">
+          <div class="flex between center-y">
+            <span class="tag-mono">YOG-250</span>
+            <span class="badge warn"><span class="dot"></span>knapp unter Schwelle</span>
+          </div>
+          <h3 style="margin: 6px 0 0;">250 ml Joghurtglas MMP</h3>
+          <p class="muted" style="font: var(--t-small); margin: 0;">Joghurtglas im MMP-Pool. Nur für Pool-Molkereien sichtbar.</p>
+          <div class="flex between center-y" style="margin-top:8px;">
+            <div>
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Bestand</div>
+              <div style="font: 500 28px/1 var(--font-display);">7.940</div>
+            </div>
+            <div class="right">
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Schwelle</div>
+              <div style="font: 500 18px/1 var(--font-display);">8.000</div>
+            </div>
+          </div>
+          <div style="height:6px; background: var(--c-paper-deep); border-radius: var(--r-pill); overflow:hidden;">
+            <div style="width: 99%; height: 100%; background: var(--c-sand-500);"></div>
+          </div>
+          <div class="flex between center-y">
+            <a class="btn-text btn btn-sm" href="#">Sichtbarkeit verwalten</a>
+            <a class="btn btn-primary btn-sm" href="handel-anmeldung.html">Vormerken</a>
+          </div>
+        </article>
+
+        <article class="card" style="display:flex; flex-direction:column; gap:10px;">
+          <div class="flex between center-y">
+            <span class="tag-mono">BTL-330</span>
+            <span class="badge mute"><span class="dot"></span>im Soll</span>
+          </div>
+          <h3 style="margin: 6px 0 0;">0,33 L Bügelflasche braun</h3>
+          <p class="muted" style="font: var(--t-small); margin: 0;">Bügelflasche für Bier. Sichtbar für Brauereien (12).</p>
+          <div class="flex between center-y" style="margin-top:8px;">
+            <div>
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Bestand</div>
+              <div style="font: 500 28px/1 var(--font-display);">5.540</div>
+            </div>
+            <div class="right">
+              <div class="muted" style="font: var(--t-caption); text-transform: uppercase; letter-spacing: var(--ls-eyebrow);">Schwelle</div>
+              <div style="font: 500 18px/1 var(--font-display);">6.000</div>
+            </div>
+          </div>
+          <div style="height:6px; background: var(--c-paper-deep); border-radius: var(--r-pill); overflow:hidden;">
+            <div style="width: 92%; height: 100%; background: var(--c-ink-300);"></div>
+          </div>
+          <div class="flex between center-y">
+            <a class="btn-text btn btn-sm" href="#">Historie ansehen</a>
+            <span class="muted" style="font: var(--t-caption);">Reservierung möglich</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Forecast-Karte -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <span class="meta">Forecast · 8 Wochen</span>
+            <h3>0,5 L Ölflasche · Standard — voraussichtlicher Verlauf</h3>
+          </div>
+          <div class="lang-pill" style="background: var(--c-paper-deep);">
+            <button>je Abfüller</button>
+            <button class="on">Gesamt</button>
+          </div>
+        </div>
+        <div class="bars">
+          <div class="bar"     style="height: 68%;" data-val="8.4k"></div>
+          <div class="bar"     style="height: 76%;" data-val="9.1k"></div>
+          <div class="bar"     style="height: 82%;" data-val="9.7k"></div>
+          <div class="bar alt" style="height: 90%;" data-val="10.5k ▲"></div>
+          <div class="bar alt" style="height: 88%;" data-val="10.3k"></div>
+          <div class="bar alt" style="height: 78%;" data-val="9.3k"></div>
+          <div class="bar alt" style="height: 70%;" data-val="8.6k"></div>
+          <div class="bar alt" style="height: 64%;" data-val="8.0k"></div>
+        </div>
+        <div class="bars-x" style="--cols: 8;">
+          <span>KW 22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
+        </div>
+        <p class="muted" style="font: var(--t-small); margin-top: 14px;">
+          <svg class="ic" viewBox="0 0 24 24" style="vertical-align: -3px;"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+          Saison-Peak in KW 25 erwartet (Sommer-Abfüllungen). Empfehlung: <strong>frühzeitig 8.000 Stück vormerken</strong>.
+        </p>
+      </section>
+
+    </div>
+
+    <footer class="footer-thin">
+      <span>dotch · MVP-Mock · alle Daten sind Demo-Werte</span>
+      <span>do the change.</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · Abfüller · Übersicht</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  /* Pseudo-Karte mit Standort-Punkten (CSS only) */
+  .map {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    background:
+      radial-gradient(ellipse at 50% 60%, rgba(150,44,27,0.04), transparent 70%),
+      var(--c-paper-warm);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+  .map .silhouette {
+    position: absolute; inset: 16px;
+    background-image:
+      linear-gradient(transparent 49.5%, rgba(150,44,27,0.07) 49.5% 50.5%, transparent 50.5%),
+      linear-gradient(90deg, transparent 49.5%, rgba(150,44,27,0.07) 49.5% 50.5%, transparent 50.5%);
+    opacity: 0.6;
+  }
+  .pin {
+    position: absolute; transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    cursor: pointer;
+  }
+  .pin .dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--c-red-600); border: 3px solid #FFF;
+    box-shadow: 0 4px 12px rgba(150,44,27,0.32);
+  }
+  .pin.warn .dot { background: var(--c-sand-500); box-shadow: 0 4px 12px rgba(201,161,74,0.4); }
+  .pin.large .dot { width: 22px; height: 22px; }
+  .pin .lbl {
+    font: 600 11px/1.1 var(--font-sans); color: var(--c-ink-900);
+    background: #FFF; padding: 3px 7px; border-radius: var(--r-sm);
+    border: 1px solid var(--c-line); white-space: nowrap;
+  }
+  .pin .lbl .v { font-family: var(--font-mono); color: var(--c-red-600); margin-left: 4px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="word"><span class="cluster"><i></i><i></i><i></i><i></i><i></i><i></i></span>dotch</span>
+      <span class="tag">abfüller</span>
+    </div>
+    <nav>
+      <span class="nav-section">Leergut</span>
+      <a href="abfueller-dashboard.html" class="nav-item active">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Übersicht & Karte
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        Forecast
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+        Reservierungen
+      </a>
+
+      <span class="nav-section">Pfand-Modul</span>
+      <a href="abfueller-pfand.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Mengen melden
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        Lieferungen
+      </a>
+
+      <span class="nav-section">Auswertung</span>
+      <a href="abfueller-reporting.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13a7 7 0 0 1 7-7c2 0 4 1 5 3 1 2 1 4 0 6"/></svg>
+        CO₂-Reporting
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/></svg>
+        Verteilungsanalyse
+      </a>
+
+      <span class="nav-section">Verwaltung</span>
+      <a href="admin-accounts.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/></svg>
+        Accounts & Rollen
+      </a>
+    </nav>
+    <div class="bottom">
+      <a href="index.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/></svg>
+        Abmelden
+      </a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="crumbs">
+        <strong>Rapunzel Naturkost</strong>
+        <span>·</span>
+        <span>Übersicht & Deutschlandkarte</span>
+      </div>
+      <div class="actions">
+        <input class="search" type="search" placeholder="Suche: Händler, Gebinde, Standort…" />
+        <div class="lang-pill"><button class="on">DE</button><button>EN</button><button>FR</button></div>
+        <button class="icon-btn">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
+          <span class="badge">5</span>
+        </button>
+        <span class="avatar">TW</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">Deutschlandweite Sicht · 18 Standorte</span>
+          <h1>Wo ist <span class="accent">Leergut</span> verfügbar?</h1>
+          <p class="sub">Aktuelle Bestände aller dotch-Handelspartner — in Echtzeit. Reservieren mit einem Klick.</p>
+        </div>
+        <div class="right">
+          <button class="btn btn-ghost">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export CSR
+          </button>
+          <button class="btn btn-primary">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Reservierung anlegen
+          </button>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-grid">
+        <article class="kpi">
+          <div class="head"><span class="label">Deutschlandweit verfügbar</span>
+            <span class="iconwrap"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span>
+          </div>
+          <div class="num"><span class="v">218.460</span><span class="u">Stück</span></div>
+          <div class="foot"><span class="delta">+ 4,1 %</span><span>vs. Vorwoche</span></div>
+        </article>
+        <article class="kpi">
+          <div class="head"><span class="label">Eigener Bedarf · KW 23-25</span>
+            <span class="iconwrap"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M3 3v18h18"/></svg></span>
+          </div>
+          <div class="num"><span class="v">62.000</span><span class="u">Stück</span></div>
+          <div class="foot"><span class="delta sand">28 % gedeckt</span><span>17.500 reserviert</span></div>
+        </article>
+        <article class="kpi">
+          <div class="head"><span class="label">Offene Reservierungen</span>
+            <span class="iconwrap sand"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg></span>
+          </div>
+          <div class="num"><span class="v">4</span><span class="u">wartend</span></div>
+          <div class="foot"><span class="delta mute">2 bestätigt</span><span>1 abgelehnt</span></div>
+        </article>
+        <article class="kpi">
+          <div class="head"><span class="label">CO₂-Bilanz · YTD</span>
+            <span class="iconwrap"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M11 20A7 7 0 0 1 4 13a7 7 0 0 1 7-7c2 0 4 1 5 3 1 2 1 4 0 6"/></svg></span>
+          </div>
+          <div class="num"><span class="v">82,4</span><span class="u">t CO₂e</span></div>
+          <div class="foot"><span class="delta">+ 18 %</span><span>vs. Einweg</span></div>
+        </article>
+      </div>
+
+      <!-- Karte + Liste -->
+      <div class="two-col">
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <span class="meta">Deutschlandkarte · Live</span>
+              <h3>Leergut-Standorte</h3>
+            </div>
+            <div style="display:flex; gap:6px;">
+              <button class="chip on">Alle Gebinde</button>
+              <button class="chip">0,5 L Öl</button>
+              <button class="chip">0,7 L Saft</button>
+              <button class="chip">370 ml Glas</button>
+            </div>
+          </div>
+
+          <div class="map">
+            <div class="silhouette"></div>
+            <!-- Norden -->
+            <div class="pin warn" style="top: 14%; left: 38%;">
+              <span class="dot"></span>
+              <span class="lbl">Hamburg <span class="v">3,2k</span></span>
+            </div>
+            <div class="pin warn" style="top: 16%; left: 52%;">
+              <span class="dot"></span>
+              <span class="lbl">Schwerin <span class="v">2,1k</span></span>
+            </div>
+            <div class="pin" style="top: 22%; left: 64%;">
+              <span class="dot"></span>
+              <span class="lbl">Berlin <span class="v">14,4k</span></span>
+            </div>
+            <div class="pin" style="top: 28%; left: 30%;">
+              <span class="dot"></span>
+              <span class="lbl">Bremen <span class="v">9,1k</span></span>
+            </div>
+
+            <!-- Mitte -->
+            <div class="pin" style="top: 38%; left: 42%;">
+              <span class="dot"></span>
+              <span class="lbl">Dortmund <span class="v">11,5k</span></span>
+            </div>
+            <div class="pin large" style="top: 44%; left: 28%;">
+              <span class="dot"></span>
+              <span class="lbl">Köln <span class="v">28,0k</span></span>
+            </div>
+            <div class="pin" style="top: 46%; left: 56%;">
+              <span class="dot"></span>
+              <span class="lbl">Leipzig <span class="v">8,4k</span></span>
+            </div>
+            <div class="pin warn" style="top: 50%; left: 48%;">
+              <span class="dot"></span>
+              <span class="lbl">Erfurt <span class="v">2,8k</span></span>
+            </div>
+
+            <!-- Süden -->
+            <div class="pin large" style="top: 62%; left: 40%;">
+              <span class="dot"></span>
+              <span class="lbl">Frankfurt <span class="v">26,5k</span></span>
+            </div>
+            <div class="pin" style="top: 70%; left: 34%;">
+              <span class="dot"></span>
+              <span class="lbl">Stuttgart <span class="v">18,9k</span></span>
+            </div>
+            <div class="pin large" style="top: 80%; left: 48%;">
+              <span class="dot"></span>
+              <span class="lbl">München <span class="v">31,2k</span></span>
+            </div>
+            <div class="pin" style="top: 84%; left: 56%;">
+              <span class="dot"></span>
+              <span class="lbl">Augsburg <span class="v">42,2k</span></span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:18px; margin-top: 14px; font: var(--t-caption); color: var(--c-ink-500);">
+            <span class="flex gap-2 center-y"><span style="width:10px;height:10px;border-radius:50%;background: var(--c-red-600);"></span>über Schwelle · sofort verfügbar</span>
+            <span class="flex gap-2 center-y"><span style="width:10px;height:10px;border-radius:50%;background: var(--c-sand-500);"></span>knapp · bald verfügbar</span>
+            <span class="flex gap-2 center-y"><span style="width:10px;height:10px;border-radius:50%;background: var(--c-ink-300);"></span>im Soll</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <span class="meta">Top 6 Standorte</span>
+              <h3>Größte Bestände heute</h3>
+            </div>
+            <a class="btn-text btn" href="#">Alle ansehen →</a>
+          </div>
+          <div style="display:flex; flex-direction:column; gap: 12px;">
+
+            <article style="padding: 12px; border:1px solid var(--c-line); border-radius: var(--r-md);">
+              <div class="flex between center-y">
+                <strong>BioFresh Süd · Augsburg</strong>
+                <span class="tag-mono">42.180</span>
+              </div>
+              <div class="muted" style="font: var(--t-caption); margin: 4px 0 8px;">3 Gebinde über Schwelle · 218 km</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <span class="tag-mono">OIL-500 · 8,4k</span>
+                <span class="tag-mono">JUI-700 · 6,2k</span>
+                <span class="tag-mono">JAR-370 · 11,3k</span>
+              </div>
+              <a class="btn btn-primary btn-sm" href="#" style="margin-top: 10px;">Reservieren</a>
+            </article>
+
+            <article style="padding: 12px; border:1px solid var(--c-line); border-radius: var(--r-md);">
+              <div class="flex between center-y">
+                <strong>Naturgut Zentrallager · München</strong>
+                <span class="tag-mono">31.240</span>
+              </div>
+              <div class="muted" style="font: var(--t-caption); margin: 4px 0 8px;">2 Gebinde über Schwelle · 162 km</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <span class="tag-mono">OIL-500 · 6,1k</span>
+                <span class="tag-mono">JAR-370 · 9,8k</span>
+              </div>
+              <a class="btn btn-primary btn-sm" href="#" style="margin-top: 10px;">Reservieren</a>
+            </article>
+
+            <article style="padding: 12px; border:1px solid var(--c-line); border-radius: var(--r-md);">
+              <div class="flex between center-y">
+                <strong>denn's Biomarkt · Köln</strong>
+                <span class="tag-mono">28.030</span>
+              </div>
+              <div class="muted" style="font: var(--t-caption); margin: 4px 0 8px;">3 Gebinde über Schwelle · 432 km</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                <span class="tag-mono">OIL-500 · 7,4k</span>
+                <span class="tag-mono">JUI-700 · 5,8k</span>
+                <span class="tag-mono">YOG-250 · 6,9k</span>
+              </div>
+              <a class="btn btn-primary btn-sm" href="#" style="margin-top: 10px;">Reservieren</a>
+            </article>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Reservierungen Tabelle -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <span class="meta">Eigene Reservierungen</span>
+            <h3>Status meiner Anfragen</h3>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="chip on">Alle (7)</button>
+            <button class="chip">wartend (4)</button>
+            <button class="chip">bestätigt (2)</button>
+            <button class="chip">abgelehnt (1)</button>
+          </div>
+        </div>
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Händler</th>
+              <th>Gebinde</th>
+              <th class="num">Menge</th>
+              <th>Abholdatum</th>
+              <th>Distanz</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>BioFresh Süd · Augsburg</strong></td>
+              <td>0,7 L Saftflasche</td>
+              <td class="num">3.200</td>
+              <td>Mi, 03.06.2026</td>
+              <td class="mono">218 km</td>
+              <td><span class="badge warn"><span class="dot"></span>wartet auf Handel</span></td>
+              <td><a class="btn-text btn btn-sm" href="#">Details</a></td>
+            </tr>
+            <tr>
+              <td><strong>denn's · Köln</strong></td>
+              <td>0,5 L Ölflasche</td>
+              <td class="num">5.400</td>
+              <td>Do, 04.06.2026</td>
+              <td class="mono">432 km</td>
+              <td><span class="badge warn"><span class="dot"></span>wartet auf Handel</span></td>
+              <td><a class="btn-text btn btn-sm" href="#">Details</a></td>
+            </tr>
+            <tr>
+              <td><strong>Naturgut · München</strong></td>
+              <td>370 ml Konfitürenglas</td>
+              <td class="num">8.000</td>
+              <td>Fr, 29.05.2026</td>
+              <td class="mono">162 km</td>
+              <td><span class="badge ok"><span class="dot"></span>bestätigt</span></td>
+              <td><a class="btn-text btn btn-sm" href="#">Details</a></td>
+            </tr>
+            <tr>
+              <td><strong>Alnatura · Darmstadt</strong></td>
+              <td>0,5 L Ölflasche</td>
+              <td class="num">4.000</td>
+              <td>Di, 09.06.2026</td>
+              <td class="mono">280 km</td>
+              <td><span class="badge ok"><span class="dot"></span>bestätigt</span></td>
+              <td><a class="btn-text btn btn-sm" href="#">Details</a></td>
+            </tr>
+            <tr>
+              <td><strong>Edeka Zentrale · Hamburg</strong></td>
+              <td>0,33 L Bügelflasche</td>
+              <td class="num">12.000</td>
+              <td>Mo, 08.06.2026</td>
+              <td class="mono">624 km</td>
+              <td><span class="badge mute"><span class="dot"></span>abgelehnt · offene Rechnung</span></td>
+              <td><a class="btn-text btn btn-sm" href="#">Klären</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+
+    <footer class="footer-thin">
+      <span>dotch · MVP-Mock · Datenhoheit garantiert: nur eigene Reservierungen sichtbar</span>
+      <span>do the change.</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

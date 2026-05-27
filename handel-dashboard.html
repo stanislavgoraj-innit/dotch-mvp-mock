@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · Handel · Übersicht</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="word">
+        <span class="cluster"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        dotch
+      </span>
+      <span class="tag">handel</span>
+    </div>
+    <nav>
+      <span class="nav-section">Leergut</span>
+      <a href="handel-dashboard.html" class="nav-item active">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Übersicht
+      </a>
+      <a href="handel-bestand.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+        Bestand & Gebinde
+      </a>
+      <a href="handel-anmeldung.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        Abholungen anmelden
+      </a>
+      <a href="clearing-app.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Wareneingang Clearing
+      </a>
+
+      <span class="nav-section">Auswertung</span>
+      <a href="abfueller-reporting.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
+        CO₂-Reporting
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+        Forecast
+      </a>
+
+      <span class="nav-section">Verwaltung</span>
+      <a href="admin-accounts.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Accounts & Rollen
+      </a>
+    </nav>
+    <div class="bottom">
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Einstellungen
+      </a>
+      <a href="index.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Abmelden
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="crumbs">
+        <strong>BioFresh Großhandel Süd · Augsburg</strong>
+        <span>·</span>
+        <span>Übersicht</span>
+      </div>
+      <div class="actions">
+        <input class="search" type="search" placeholder="Suche: Gebinde, Abfüller, Bestellung…" />
+        <div class="lang-pill"><button class="on">DE</button><button>EN</button><button>FR</button></div>
+        <button class="icon-btn" title="Benachrichtigungen">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
+          <span class="badge">3</span>
+        </button>
+        <span class="avatar">MK</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- Page head -->
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">Übersicht · KW 22 · 2026</span>
+          <h1>Guten Morgen, <span class="accent">Maria.</span></h1>
+          <p class="sub">Drei Gebinde haben den Schwellenwert für Abholung erreicht. Eine Reservierung wartet auf deine Bestätigung.</p>
+        </div>
+        <div class="right">
+          <button class="btn btn-ghost">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+            Mai 2026
+          </button>
+          <a class="btn btn-primary" href="handel-anmeldung.html">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Leergut-Abholung anmelden
+          </a>
+        </div>
+      </div>
+
+      <!-- Schwellenwert-Banner -->
+      <div class="banner">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        <div>
+          <h4>3 Schwellenwerte erreicht – Abholung empfohlen</h4>
+          <p>0,5-L-Ölflasche Standard · 0,7-L-Saftflasche Bio · 370-ml-Konfitürenglas. Erstelle mit einem Klick eine Sammel-Anmeldung an deine Abfüller.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary btn-sm" href="handel-anmeldung.html">Sammel-Anmeldung →</a>
+        </div>
+      </div>
+
+      <!-- KPI Tiles -->
+      <div class="kpi-grid">
+        <article class="kpi">
+          <div class="head">
+            <span class="label">Leergut im Lager</span>
+            <span class="iconwrap">
+              <svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </span>
+          </div>
+          <div class="num"><span class="v">42.180</span><span class="u">Stück</span></div>
+          <div class="foot">
+            <span class="delta"><svg class="ic" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M7 17l10-10M7 7h10v10"/></svg>+ 8,4 %</span>
+            <span>vs. letzte Woche</span>
+          </div>
+        </article>
+
+        <article class="kpi">
+          <div class="head">
+            <span class="label">Offene Anmeldungen</span>
+            <span class="iconwrap">
+              <svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </span>
+          </div>
+          <div class="num"><span class="v">7</span><span class="u">Abholungen</span></div>
+          <div class="foot">
+            <span class="delta mute">3 bestätigt</span>
+            <span>4 in Prüfung</span>
+          </div>
+        </article>
+
+        <article class="kpi">
+          <div class="head">
+            <span class="label">Reservierungen</span>
+            <span class="iconwrap sand">
+              <svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+            </span>
+          </div>
+          <div class="num"><span class="v">2</span><span class="u">wartend</span></div>
+          <div class="foot">
+            <span class="delta sand">Aktion nötig</span>
+            <span>von Abfüllern</span>
+          </div>
+        </article>
+
+        <article class="kpi">
+          <div class="head">
+            <span class="label">CO₂ gespart · YTD</span>
+            <span class="iconwrap">
+              <svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M11 20A7 7 0 0 1 4 13a7 7 0 0 1 7-7c2 0 4 1 5 3 1 2 1 4 0 6"/><path d="M11 20c4 0 7-3 7-7"/></svg>
+            </span>
+          </div>
+          <div class="num"><span class="v">18,4</span><span class="u">t CO₂e</span></div>
+          <div class="foot">
+            <span class="delta"><svg class="ic" viewBox="0 0 24 24" style="width:11px;height:11px;"><path d="M7 17l10-10M7 7h10v10"/></svg>+ 12 %</span>
+            <span>vs. Einweg</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Two col: Bestandsverlauf + Reservierungs-Anfragen -->
+      <div class="two-col">
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <span class="meta">Bestandsverlauf</span>
+              <h3>Leergut-Mengen · letzte 12 Wochen</h3>
+            </div>
+            <div class="lang-pill" style="background: var(--c-paper-deep);">
+              <button class="on">Gesamt</button>
+              <button>je Gebinde</button>
+            </div>
+          </div>
+          <div class="bars">
+            <div class="bar"        style="height: 38%;" data-val="28.4k"></div>
+            <div class="bar alt"    style="height: 46%;" data-val="32.1k"></div>
+            <div class="bar"        style="height: 52%;" data-val="34.0k"></div>
+            <div class="bar alt"    style="height: 58%;" data-val="36.2k"></div>
+            <div class="bar"        style="height: 64%;" data-val="38.4k"></div>
+            <div class="bar alt"    style="height: 60%;" data-val="37.5k"></div>
+            <div class="bar"        style="height: 68%;" data-val="39.1k"></div>
+            <div class="bar alt"    style="height: 72%;" data-val="40.0k"></div>
+            <div class="bar"        style="height: 74%;" data-val="40.4k"></div>
+            <div class="bar alt"    style="height: 78%;" data-val="41.2k"></div>
+            <div class="bar"        style="height: 82%;" data-val="41.7k"></div>
+            <div class="bar"        style="height: 88%;" data-val="42.2k"></div>
+          </div>
+          <div class="bars-x" style="--cols: 12;">
+            <span>KW 11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span><strong style="color:var(--c-red-600)">22</strong></span>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <span class="meta">Eingehend</span>
+              <h3>Reservierungs-Anfragen</h3>
+            </div>
+            <a class="btn-text btn" href="#">Alle ansehen →</a>
+          </div>
+
+          <article style="display:flex; gap:12px; padding: 12px 0; border-bottom: 1px solid var(--c-line);">
+            <span class="avatar">SO</span>
+            <div style="flex:1; min-width:0;">
+              <div class="flex between center-y">
+                <strong>Sonnentor Saftmanufaktur</strong>
+                <span class="badge warn"><span class="dot"></span>wartet</span>
+              </div>
+              <div class="muted" style="font: var(--t-small);">0,7-L-Saftflasche Bio · <strong>3.200 Stück</strong> · Abholung Mi, 03.06.</div>
+              <div style="margin-top: 8px; display:flex; gap:8px;">
+                <button class="btn btn-primary btn-sm">Bestätigen</button>
+                <button class="btn btn-ghost btn-sm">Ablehnen</button>
+                <button class="btn-text btn btn-sm">Details</button>
+              </div>
+            </div>
+          </article>
+
+          <article style="display:flex; gap:12px; padding: 12px 0; border-bottom: 1px solid var(--c-line);">
+            <span class="avatar">RW</span>
+            <div style="flex:1; min-width:0;">
+              <div class="flex between center-y">
+                <strong>Rapunzel Naturkost</strong>
+                <span class="badge warn"><span class="dot"></span>wartet</span>
+              </div>
+              <div class="muted" style="font: var(--t-small);">0,5-L-Ölflasche Standard · <strong>5.400 Stück</strong> · Abholung Do, 04.06.</div>
+              <div style="margin-top: 8px; display:flex; gap:8px;">
+                <button class="btn btn-primary btn-sm">Bestätigen</button>
+                <button class="btn btn-ghost btn-sm">Ablehnen</button>
+                <button class="btn-text btn btn-sm">Details</button>
+              </div>
+            </div>
+          </article>
+
+          <article style="display:flex; gap:12px; padding: 12px 0;">
+            <span class="avatar">BC</span>
+            <div style="flex:1; min-width:0;">
+              <div class="flex between center-y">
+                <strong>Berchtesgadener Land Molkerei</strong>
+                <span class="badge ok"><span class="dot"></span>bestätigt</span>
+              </div>
+              <div class="muted" style="font: var(--t-small);">370-ml-Joghurtglas MMP · <strong>8.000 Stück</strong> · Abholung Fr, 29.05.</div>
+            </div>
+          </article>
+        </section>
+
+      </div>
+
+      <!-- Tabelle: aktuelle Leergut-Mengen je Gebinde -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <span class="meta">Bestand · echtzeit</span>
+            <h3>Leergut-Mengen je Gebinde</h3>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="chip on">Alle (12)</button>
+            <button class="chip">Flaschen (7)</button>
+            <button class="chip">Gläser (5)</button>
+            <a class="btn btn-ghost btn-sm" href="handel-bestand.html">Vollansicht →</a>
+          </div>
+        </div>
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Gebinde</th>
+              <th>Form</th>
+              <th>Sichtbar für</th>
+              <th class="num">Bestand</th>
+              <th class="num">Schwelle</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0,5 L Ölflasche · Standard <span class="tag-mono">OIL-500</span></td>
+              <td>Flasche</td>
+              <td>Alle Abfüller</td>
+              <td class="num">8.420</td>
+              <td class="num">5.000</td>
+              <td><span class="badge ok"><span class="dot"></span>Abholung empfohlen</span></td>
+              <td><a class="btn-text btn btn-sm" href="handel-anmeldung.html">Anmelden →</a></td>
+            </tr>
+            <tr>
+              <td>0,7 L Saftflasche Bio <span class="tag-mono">JUI-700</span></td>
+              <td>Flasche</td>
+              <td>Alle Abfüller</td>
+              <td class="num">6.180</td>
+              <td class="num">4.000</td>
+              <td><span class="badge ok"><span class="dot"></span>Abholung empfohlen</span></td>
+              <td><a class="btn-text btn btn-sm" href="handel-anmeldung.html">Anmelden →</a></td>
+            </tr>
+            <tr>
+              <td>370 ml Konfitürenglas <span class="tag-mono">JAR-370</span></td>
+              <td>Glas</td>
+              <td>Alle Abfüller</td>
+              <td class="num">11.260</td>
+              <td class="num">6.000</td>
+              <td><span class="badge ok"><span class="dot"></span>Abholung empfohlen</span></td>
+              <td><a class="btn-text btn btn-sm" href="handel-anmeldung.html">Anmelden →</a></td>
+            </tr>
+            <tr>
+              <td>500 ml Veltins-Flasche <span class="tag-mono">VEL-500</span></td>
+              <td>Flasche</td>
+              <td><span class="badge info"><span class="dot"></span>nur Veltins</span></td>
+              <td class="num">2.840</td>
+              <td class="num">4.000</td>
+              <td><span class="badge mute"><span class="dot"></span>im Soll</span></td>
+              <td><a class="btn-text btn btn-sm" href="#">—</a></td>
+            </tr>
+            <tr>
+              <td>250 ml Joghurtglas MMP <span class="tag-mono">YOG-250</span></td>
+              <td>Glas</td>
+              <td>Molkereien (5)</td>
+              <td class="num">7.940</td>
+              <td class="num">8.000</td>
+              <td><span class="badge warn"><span class="dot"></span>knapp unter Schwelle</span></td>
+              <td><a class="btn-text btn btn-sm" href="handel-anmeldung.html">Vormerken</a></td>
+            </tr>
+            <tr>
+              <td>0,33 L Bügelflasche braun <span class="tag-mono">BTL-330</span></td>
+              <td>Flasche</td>
+              <td>Brauereien (12)</td>
+              <td class="num">5.540</td>
+              <td class="num">6.000</td>
+              <td><span class="badge mute"><span class="dot"></span>im Soll</span></td>
+              <td><a class="btn-text btn btn-sm" href="#">—</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+
+    <footer class="footer-thin">
+      <span>dotch · MVP-Mock · alle Daten sind Demo-Werte</span>
+      <span>do the change.</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

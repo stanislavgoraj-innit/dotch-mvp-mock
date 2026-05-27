@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 36" role="img" aria-label="dotch dot mark">
+  <title>dotch dot mark</title>
+  
+  <g fill="#962C1B">
+    <circle cx="6" cy="6" r="5"></circle>
+    <circle cx="24" cy="6" r="5"></circle>
+    <circle cx="42" cy="6" r="5"></circle>
+    <circle cx="6" cy="24" r="5"></circle>
+    <circle cx="24" cy="24" r="5"></circle>
+    <circle cx="42" cy="24" r="5"></circle>
+  </g>
+</svg>

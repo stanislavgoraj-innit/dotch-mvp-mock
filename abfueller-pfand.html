@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · Abfüller · Pfand-Mengen melden</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="word"><span class="cluster"><i></i><i></i><i></i><i></i><i></i><i></i></span>dotch</span>
+      <span class="tag">abfüller</span>
+    </div>
+    <nav>
+      <span class="nav-section">Leergut</span>
+      <a href="abfueller-dashboard.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Übersicht & Karte
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        Forecast
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M8 7V3M16 7V3M3 11h18"/></svg>
+        Reservierungen
+      </a>
+
+      <span class="nav-section">Pfand-Modul</span>
+      <a href="abfueller-pfand.html" class="nav-item active">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Mengen melden
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        Lieferungen
+      </a>
+
+      <span class="nav-section">Auswertung</span>
+      <a href="abfueller-reporting.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13a7 7 0 0 1 7-7c2 0 4 1 5 3 1 2 1 4 0 6"/></svg>
+        CO₂-Reporting
+      </a>
+
+      <span class="nav-section">Verwaltung</span>
+      <a href="admin-accounts.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/></svg>
+        Accounts & Rollen
+      </a>
+    </nav>
+    <div class="bottom">
+      <a href="index.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/></svg>
+        Abmelden
+      </a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="crumbs">
+        <strong>Rapunzel Naturkost · Dispo</strong>
+        <span>·</span>
+        <span>Pfand-Mengen melden</span>
+      </div>
+      <div class="actions">
+        <div class="lang-pill"><button class="on">DE</button><button>EN</button></div>
+        <span class="avatar">JS</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">Pfand-Modul · MVP</span>
+          <h1>Du lieferst aus — <span class="accent">wir kümmern uns um den Pfand.</span></h1>
+          <p class="sub">Melde nur Mengen, Gebinde und Empfänger. dotch übernimmt das Pfand-Clearing mit dem Handel.</p>
+        </div>
+        <div class="right">
+          <a class="btn btn-ghost" href="#">Mein Verlauf</a>
+          <button class="btn btn-primary">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Neue Lieferung melden
+          </button>
+        </div>
+      </div>
+
+      <!-- Info-Banner -->
+      <div class="banner" style="background: var(--c-paper-warm); border-color: var(--c-line); color: var(--c-ink-700);">
+        <svg class="ic" viewBox="0 0 24 24" style="color: var(--c-red-600);"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div>
+          <h4 style="color: var(--c-ink-900);">So funktioniert das Pfand-Modul</h4>
+          <p style="color: var(--c-ink-700);">
+            Sobald du eine Vollgut-Lieferung an einen Händler meldest, berechnet dotch das Pfand <strong>direkt dem Handel</strong> — nicht mehr dir. Differenzen zwischen Leergut-Rücknahmen und Vollgut-Einlieferungen werden automatisch verrechnet.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-col">
+
+        <!-- Formular -->
+        <section class="card">
+          <span class="meta" style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: var(--c-ink-500);">Neue Lieferung</span>
+          <h3 style="margin: 6px 0 18px;">Mengen-Eingabe</h3>
+
+          <div class="field" style="margin-bottom: 14px;">
+            <label>Datum der Auslieferung</label>
+            <input type="date" value="2026-05-27">
+            <span class="field-help">Tag, an dem das Vollgut beim Händler eintrifft.</span>
+          </div>
+
+          <div class="field" style="margin-bottom: 14px;">
+            <label>Empfangender Händler</label>
+            <select>
+              <option>BioFresh Großhandel Süd · Augsburg</option>
+              <option>denn's Biomarkt Zentrale · Köln</option>
+              <option>Alnatura Zentrallager · Darmstadt</option>
+              <option>Naturgut · München</option>
+              <option>Edeka Zentrale Süd · Augsburg</option>
+              <option>Rewe Group · Köln</option>
+            </select>
+            <span class="field-help">Daten kommen automatisch aus dem dotch-ERP. Kontaktübersicht ist immer aktuell.</span>
+          </div>
+
+          <hr>
+
+          <span class="meta" style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: var(--c-ink-500);">Gebinde-Positionen</span>
+
+          <article style="display:grid; grid-template-columns: 2fr 1fr 1fr; gap:10px; padding: 14px; border:1px solid var(--c-line); border-radius: var(--r-md); margin: 8px 0;">
+            <div class="field">
+              <label>Gebindeart</label>
+              <select>
+                <option>0,5 L Ölflasche · Standard (OIL-500)</option>
+                <option>0,7 L Saftflasche Bio (JUI-700)</option>
+                <option>370 ml Konfitürenglas (JAR-370)</option>
+                <option>250 ml Joghurtglas MMP (YOG-250)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Menge</label>
+              <input type="number" value="4800">
+            </div>
+            <div class="field">
+              <label>Pfand · auto</label>
+              <input type="text" value="1.392,00 €" readonly style="background: var(--c-paper-warm);">
+            </div>
+          </article>
+
+          <article style="display:grid; grid-template-columns: 2fr 1fr 1fr; gap:10px; padding: 14px; border:1px solid var(--c-line); border-radius: var(--r-md); margin: 8px 0;">
+            <div class="field">
+              <label>Gebindeart</label>
+              <select>
+                <option>370 ml Konfitürenglas (JAR-370)</option>
+                <option>0,5 L Ölflasche · Standard (OIL-500)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Menge</label>
+              <input type="number" value="3200">
+            </div>
+            <div class="field">
+              <label>Pfand · auto</label>
+              <input type="text" value="480,00 €" readonly style="background: var(--c-paper-warm);">
+            </div>
+          </article>
+
+          <button class="btn btn-ghost" style="margin-top: 4px;">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Weitere Position
+          </button>
+
+          <hr>
+
+          <div class="field">
+            <label>Bemerkung (optional)</label>
+            <textarea rows="3" placeholder="Hinweise zur Lieferung, Auftragsnummer …"></textarea>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top: 18px;">
+            <button class="btn btn-ghost" style="flex:1; justify-content:center;">Entwurf speichern</button>
+            <button class="btn btn-primary" style="flex:2; justify-content:center;">
+              An dotch übermitteln
+              <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <!-- Summary + Help -->
+        <aside style="display:flex; flex-direction:column; gap:16px;">
+
+          <section class="card">
+            <span class="meta" style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: var(--c-ink-500);">Zusammenfassung</span>
+            <h3 style="margin: 6px 0 14px;">2 Positionen · 8.000 Stück</h3>
+            <div style="display:flex; flex-direction:column; gap:10px; font: var(--t-small);">
+              <div class="flex between"><span>0,5 L Ölflasche</span><strong class="mono">4.800</strong></div>
+              <div class="flex between"><span>370 ml Konfitürenglas</span><strong class="mono">3.200</strong></div>
+              <hr>
+              <div class="flex between"><span class="muted">Pfand-Summe Brutto</span><strong class="mono">1.872,00 €</strong></div>
+              <div class="flex between"><span class="muted">→ wird an Händler berechnet</span><strong class="mono" style="color: var(--c-red-600);">1.872,00 €</strong></div>
+              <div class="flex between"><span class="muted">→ deine Liquiditätsbindung</span><strong class="mono" style="color: var(--c-red-600);">0,00 €</strong></div>
+            </div>
+          </section>
+
+          <section class="card" style="background: var(--c-red-100); border-color: var(--c-red-300);">
+            <span class="meta" style="color: var(--c-red-700);">Vorteil</span>
+            <h3 style="margin: 6px 0 8px; color: var(--c-red-800);">Kein Lager-Lock-in mehr</h3>
+            <p style="font: var(--t-small); color: var(--c-red-800); margin: 0;">
+              Bei Saison-Produkten lagerst du das Vollgut oft monatelang. Dank des Pfand-Moduls bindet das nicht mehr deine Liquidität — du übernimmst das Pfand erst bei Auslieferung an den Handel.
+            </p>
+          </section>
+
+          <section class="card">
+            <span class="meta" style="font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow); text-transform:uppercase; color: var(--c-ink-500);">Vergangene Meldungen</span>
+            <h3 style="margin: 6px 0 14px;">Letzte 5</h3>
+            <div style="display:flex; flex-direction:column; gap: 10px; font: var(--t-small);">
+              <div class="flex between"><span>26.05. · denn's Köln</span><span class="tag-mono">6.400 Stk</span></div>
+              <div class="flex between"><span>23.05. · Alnatura</span><span class="tag-mono">4.000 Stk</span></div>
+              <div class="flex between"><span>21.05. · BioFresh</span><span class="tag-mono">9.200 Stk</span></div>
+              <div class="flex between"><span>19.05. · Edeka Süd</span><span class="tag-mono">12.000 Stk</span></div>
+              <div class="flex between"><span>15.05. · Naturgut</span><span class="tag-mono">5.600 Stk</span></div>
+            </div>
+            <a class="btn-text btn btn-sm" href="#" style="margin-top: 12px;">Vollständigen Verlauf öffnen →</a>
+          </section>
+
+        </aside>
+      </div>
+
+    </div>
+
+    <footer class="footer-thin">
+      <span>dotch · MVP-Mock · Pfand-Modul nach Lastenheft Stand 30.04.2026</span>
+      <span>do the change.</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

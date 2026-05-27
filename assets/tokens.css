@@ -1,0 +1,205 @@
+/* ============================================================
+   dotch · Design Tokens
+   Source: dotch.de (Webflow) + dotch Pitchdeck V7 (Mar 2026)
+   See README.md for substitution notes.
+   ============================================================ */
+
+/* -- Fonts ---------------------------------------------------- */
+/* Display + body: General Sans (Fontshare, free). Closest free
+   match to dotch's web font; replace with brand fonts when available. */
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,201,300,301,400,401,500,501,600,601,700,701&display=swap');
+
+/* Editorial accent (sparingly): Instrument Serif italic. */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+/* Mono: IBM Plex Mono — data tables, deposit numbers, codes. */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---------- Brand color ------------------------------------ */
+  /* dotch's single brand colour is a deep terracotta / oxblood red,
+     extracted from the official pitchdeck (most-used non-neutral
+     across all 13 pages). It carries every brand moment: the
+     wordmark, dot mark, CTAs, charts, accent words in headlines. */
+  --c-red-600: #962C1B;   /* primary brand red — THE accent */
+  --c-red-700: #7A2417;   /* hover / pressed */
+  --c-red-800: #581910;   /* deepest — inverse surfaces, footer */
+  --c-red-300: #DCA89D;   /* tint — soft fills, deltas */
+  --c-red-100: #F5DDD6;   /* lightest — chip backgrounds */
+
+  /* Legacy aliases — kept so existing components keep resolving.
+     `--c-green-*` is a semantic role name in this codebase; the
+     actual brand colour is red. New work should reference
+     `--c-red-*` directly. */
+  --c-green-700: var(--c-red-600);
+  --c-green-900: var(--c-red-800);
+  --c-green-500: var(--c-red-700);
+  --c-green-300: var(--c-red-300);
+  --c-green-100: var(--c-red-100);
+
+  /* Warm sand accent — used VERY sparingly for system feedback
+     (warnings, info). The deck itself uses essentially no other
+     accent; reach for these only when red + neutral cannot carry
+     the meaning. */
+  --c-sand-500: #C9A14A;
+  --c-sand-300: #E0C589;
+  --c-sand-100: #F4E8C9;
+
+  /* Legacy amber aliases → sand */
+  --c-amber-500: var(--c-sand-500);
+  --c-amber-300: var(--c-sand-300);
+  --c-amber-100: var(--c-sand-100);
+
+  /* ---------- Surfaces (clean white, not cream) -------------- */
+  /* The deck reads white-on-white. We allow a faint warm-paper
+     tint as the *secondary* surface for cards-in-cards moments. */
+  --c-paper: #FFFFFF;       /* default page surface — pure white */
+  --c-paper-warm: #FAF7F2;  /* very soft warm paper, optional */
+  --c-paper-deep: #EFEFEF;  /* light grey panel (from deck) */
+  --c-card: #FFFFFF;        /* cards on white — use border + shadow */
+
+  /* ---------- Ink (text) ------------------------------------- */
+  --c-ink-900: #0B0B0B;     /* near-pure black */
+  --c-ink-700: #2A2A2A;
+  --c-ink-500: #595959;     /* deck's secondary grey */
+  --c-ink-300: #8E8E8E;
+  --c-ink-100: #D6D6D6;
+
+  /* ---------- Lines ------------------------------------------ */
+  --c-line:        rgba(11,11,11,0.10);
+  --c-line-strong: rgba(11,11,11,0.22);
+  --c-line-onDark: rgba(255,255,255,0.16);
+
+  /* ---------- Semantic foreground / background --------------- */
+  --fg-1: var(--c-ink-900);
+  --fg-2: var(--c-ink-500);
+  --fg-3: var(--c-ink-300);
+  --fg-link: var(--c-red-600);
+  --fg-onDark:   #FFFFFF;
+  --fg-onDark-2: rgba(255,255,255,0.74);
+
+  --bg-1: var(--c-paper);
+  --bg-2: var(--c-paper-deep);
+  --bg-card: var(--c-card);
+  --bg-inverse:     var(--c-red-800);
+  --bg-inverse-ink: #0B0B0B;
+
+  /* Status / signal */
+  --c-success: #2E7A48;     /* a quieter forest — confirmation only */
+  --c-warning: var(--c-sand-500);
+  --c-danger:  var(--c-red-600);
+
+  /* ---------- Typography stacks ------------------------------ */
+  --font-display: 'General Sans', 'Söhne', 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans:    'General Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif:   'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ---------- Type scale ------------------------------------- */
+  /* Sentence case is preferred over all caps. Headlines often mix
+     a bold red word + a regular black continuation, e.g.
+     "Mehrweg <red>ist Teamarbeit</red>." */
+  --t-display: 600 64px/1.04 var(--font-display);
+  --t-h1:      600 44px/1.08 var(--font-display);
+  --t-h2:      600 32px/1.16 var(--font-display);
+  --t-h3:      600 22px/1.25 var(--font-display);
+  --t-h4:      600 17px/1.30 var(--font-display);
+  --t-lede:    400 22px/1.45 var(--font-sans);
+  --t-body:    400 16px/1.55 var(--font-sans);
+  --t-small:   400 14px/1.50 var(--font-sans);
+  --t-caption: 500 12px/1.40 var(--font-sans);
+  --t-eyebrow: 600 11px/1.20 var(--font-sans);   /* uppercase + tracked */
+  --t-button:  600 14px/1.00 var(--font-sans);
+  --t-editorial: 400 italic 56px/1.05 var(--font-serif);
+  --t-stat:    500 64px/1.00 var(--font-display);
+
+  /* Letter-spacing */
+  --ls-eyebrow:  0.16em;
+  --ls-button:   0.02em;
+  --ls-h-tight: -0.015em;
+  --ls-display: -0.02em;
+
+  /* ---------- Spacing (8-pt scale) --------------------------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  /* ---------- Radii ------------------------------------------ */
+  /* The dotch deck reads rectilinear and editorial — radii are
+     restrained. Full pills for status/CTAs only. */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-pill: 999px;
+  --r-circle: 50%;
+
+  /* ---------- Shadow / elevation ----------------------------- */
+  /* Whisper-quiet. The deck barely uses shadows at all. */
+  --sh-1: 0 1px 2px rgba(11,11,11,0.05), 0 1px 1px rgba(11,11,11,0.03);
+  --sh-2: 0 6px 18px -10px rgba(150,44,27,0.16), 0 2px 4px rgba(11,11,11,0.04);
+  --sh-3: 0 24px 48px -20px rgba(150,44,27,0.20), 0 4px 10px rgba(11,11,11,0.05);
+  --sh-focus: 0 0 0 3px rgba(150,44,27,0.28);
+
+  /* ---------- Motion ----------------------------------------- */
+  --ease-out:    cubic-bezier(.2,.7,.2,1);
+  --ease-in-out: cubic-bezier(.65,.05,.36,1);
+  --dur-fast: 140ms;
+  --dur-med:  280ms;
+  --dur-slow: 480ms;
+  --dur-loop: 30s;
+}
+
+/* ============================================================
+   Semantic element styles
+   ============================================================ */
+html { color: var(--fg-1); background: var(--bg-1); }
+body {
+  font: var(--t-body);
+  color: var(--fg-1);
+  background: var(--bg-1);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 { font: var(--t-h1); letter-spacing: var(--ls-h-tight); margin: 0 0 .4em; }
+h2 { font: var(--t-h2); letter-spacing: var(--ls-h-tight); margin: 0 0 .4em; }
+h3 { font: var(--t-h3); margin: 0 0 .4em; }
+h4 { font: var(--t-h4); margin: 0 0 .4em; }
+p  { margin: 0 0 1em; max-width: 64ch; }
+
+.display { font: var(--t-display); letter-spacing: var(--ls-display); }
+.lede    { font: var(--t-lede); color: var(--fg-2); max-width: 56ch; }
+.editorial { font: var(--t-editorial); color: var(--c-red-800); }
+.stat    { font: var(--t-stat); letter-spacing: var(--ls-display); color: var(--c-red-600); }
+
+.accent  { color: var(--c-red-600); }   /* the bold red word in mixed headlines */
+
+.eyebrow {
+  font: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-red-600);
+}
+
+a { color: var(--fg-link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+code, pre, .mono { font-family: var(--font-mono); }
+
+::selection { background: var(--c-red-100); color: var(--c-red-800); }
+
+/* Focus visibility — never remove */
+*:focus-visible {
+  outline: none;
+  box-shadow: var(--sh-focus);
+  border-radius: var(--r-sm);
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · Mengen-Clearing · Wareneingang</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .clearing-shell {
+    min-height: 100vh; display: grid;
+    grid-template-columns: 380px 1fr;
+    background: var(--c-paper-deep);
+  }
+  /* Mobile-Frame */
+  .device {
+    background: #FFF; border-radius: 0;
+    padding: 24px 18px; display:flex; flex-direction:column; gap: 14px;
+    border-right: 1px solid var(--c-line);
+    min-height: 100vh;
+  }
+  .device .top {
+    display:flex; align-items:center; justify-content:space-between;
+    padding-bottom: 10px; border-bottom: 1px solid var(--c-line);
+  }
+  .device .top .brand-mini {
+    display:flex; align-items:center; gap: 6px;
+    font: 600 18px/1 var(--font-display); letter-spacing: -0.04em;
+  }
+  .device .top .brand-mini .cluster { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; padding: 1px; }
+  .device .top .brand-mini .cluster i { width: 4px; height: 4px; border-radius: 50%; background: var(--c-red-600); display:block; }
+
+  .scanner {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #0B0B0B 0%, #2A2A2A 100%);
+    border-radius: var(--r-md);
+    position: relative;
+    overflow: hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .scanner .frame {
+    width: 70%; height: 60%;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: var(--r-md);
+    position: relative;
+  }
+  .scanner .frame::before, .scanner .frame::after,
+  .scanner .frame > i:nth-child(1), .scanner .frame > i:nth-child(2) {
+    content:""; position:absolute; width: 22px; height: 22px;
+    border-color: var(--c-red-300); border-style: solid;
+  }
+  .scanner .frame::before { top: -2px; left: -2px; border-width: 4px 0 0 4px; }
+  .scanner .frame::after  { top: -2px; right: -2px; border-width: 4px 4px 0 0; }
+  .scanner .frame > i:nth-child(1) { bottom: -2px; left: -2px; border-width: 0 0 4px 4px; }
+  .scanner .frame > i:nth-child(2) { bottom: -2px; right: -2px; border-width: 0 4px 4px 0; }
+  .scanner .laser {
+    position: absolute; left: 0; right: 0; top: 50%;
+    height: 2px; background: var(--c-red-600);
+    box-shadow: 0 0 16px var(--c-red-600);
+  }
+
+  .key-row {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 8px;
+  }
+  .key {
+    background: var(--c-paper-deep); border: 0;
+    padding: 16px; border-radius: var(--r-md);
+    font: 600 22px/1 var(--font-display); color: var(--c-ink-900);
+    cursor: pointer;
+  }
+  .key:hover { background: var(--c-paper-warm); }
+  .delivery {
+    background: var(--c-paper-warm); border-radius: var(--r-md);
+    padding: 12px 14px;
+  }
+
+  .desktop {
+    padding: 32px 40px;
+  }
+</style>
+</head>
+<body>
+<div class="clearing-shell">
+
+  <!-- Linke Seite: Mobile/Tablet Web-App für Lager -->
+  <section class="device">
+    <div class="top">
+      <span class="brand-mini">
+        <span class="cluster"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        dotch
+      </span>
+      <span class="tag-mono">Clearing · Tor 3</span>
+    </div>
+
+    <span class="eyebrow">Lieferung 24/0612</span>
+    <h2 style="margin: -4px 0 0; font: var(--t-h3);">Sonnentor → BioFresh Süd</h2>
+    <div class="muted" style="font: var(--t-small);">Erwartet: <strong>3.200 Stück</strong> · 0,7 L Saftflasche · Mi 03.06., 09:30</div>
+
+    <!-- Scanner -->
+    <div class="scanner">
+      <div class="frame">
+        <i></i><i></i>
+        <div class="laser"></div>
+      </div>
+    </div>
+    <div class="muted center" style="font: var(--t-caption);">Gebinde-Code scannen oder manuell eingeben</div>
+
+    <div class="delivery">
+      <div class="flex between center-y">
+        <strong style="font: 600 13px/1.2 var(--font-display);">JUI-700 · 0,7 L Saftflasche Bio</strong>
+        <span class="badge ok"><span class="dot"></span>erkannt</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Tatsächlich gezählt</label>
+      <input type="number" value="3180" style="font: 500 28px/1 var(--font-display); padding: 14px; text-align:center;">
+    </div>
+
+    <!-- Keypad-Tease -->
+    <div class="key-row">
+      <button class="key">1</button>
+      <button class="key">2</button>
+      <button class="key">3</button>
+      <button class="key">4</button>
+      <button class="key">5</button>
+      <button class="key">6</button>
+      <button class="key">7</button>
+      <button class="key">8</button>
+      <button class="key">9</button>
+      <button class="key" style="background: var(--c-paper-warm);">·</button>
+      <button class="key">0</button>
+      <button class="key" style="background: var(--c-paper-warm); color: var(--c-red-600);">⌫</button>
+    </div>
+
+    <div class="banner" style="background: var(--c-sand-100); border-color: var(--c-sand-300); color: #6E4A12; padding: 10px 14px;">
+      <svg class="ic" viewBox="0 0 24 24" style="color: var(--c-sand-500);"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <div style="font: var(--t-small); color: #6E4A12;">
+        <strong>Differenz: −20 Stück</strong> (−0,6 %). Grund auswählen oder bestätigen.
+      </div>
+    </div>
+
+    <button class="btn btn-primary" style="justify-content:center; padding: 16px;">
+      Differenz bestätigen & übernehmen
+    </button>
+    <button class="btn btn-ghost" style="justify-content:center;">Grund auswählen</button>
+  </section>
+
+  <!-- Rechte Seite: Desktop-Overview -->
+  <section class="desktop">
+
+    <div class="flex between center-y" style="margin-bottom: 24px;">
+      <a class="btn-text btn" href="handel-dashboard.html">← Zurück zum Dashboard</a>
+      <div class="flex gap-3 center-y">
+        <span class="tag-mono">BioFresh Süd · Augsburg · Tor 3</span>
+        <span class="avatar">MK</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Mengen-Clearing · Wareneingang</span>
+    <h1 style="font: var(--t-h1); letter-spacing: var(--ls-h-tight); margin: 8px 0 8px;">Stimmen die Mengen — <span class="accent">heute?</span></h1>
+    <p class="muted" style="font: var(--t-lede); max-width: 60ch;">
+      Vergleicht die vom Handel angegebene Menge mit dem, was tatsächlich am Tor ankommt. Live auf Tablet im Lager oder im Browser am Schreibtisch.
+    </p>
+
+    <div class="kpi-grid" style="grid-template-columns: repeat(3,1fr); margin-top: 28px;">
+      <article class="kpi">
+        <div class="head"><span class="label">Heute geprüft</span><span class="iconwrap"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><polyline points="9 11 12 14 22 4"/></svg></span></div>
+        <div class="num"><span class="v">18</span><span class="u">Lieferungen</span></div>
+        <div class="foot"><span class="delta">100 % erfasst</span><span></span></div>
+      </article>
+      <article class="kpi">
+        <div class="head"><span class="label">Differenzen</span><span class="iconwrap sand"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span></div>
+        <div class="num"><span class="v">3</span><span class="u">offen</span></div>
+        <div class="foot"><span class="delta sand">2 unter, 1 über</span><span></span></div>
+      </article>
+      <article class="kpi">
+        <div class="head"><span class="label">Abweichungsquote</span><span class="iconwrap"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M3 3v18h18"/></svg></span></div>
+        <div class="num"><span class="v">0,8</span><span class="u">%</span></div>
+        <div class="foot"><span class="delta mute">Ziel: &lt;1 %</span><span></span></div>
+      </article>
+    </div>
+
+    <h3 style="margin: 32px 0 12px;">Heutige Lieferungen</h3>
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Lieferung</th>
+          <th>Abfüller</th>
+          <th>Gebinde</th>
+          <th class="num">angemeldet</th>
+          <th class="num">gezählt</th>
+          <th class="num">Diff.</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">24/0612</td>
+          <td>Sonnentor</td>
+          <td>0,7 L Saftflasche</td>
+          <td class="num">3.200</td>
+          <td class="num">3.180</td>
+          <td class="num" style="color: var(--c-sand-500);">−20</td>
+          <td><span class="badge warn"><span class="dot"></span>offen · ungeklärt</span></td>
+        </tr>
+        <tr>
+          <td class="mono">24/0611</td>
+          <td>Rapunzel Naturkost</td>
+          <td>0,5 L Ölflasche</td>
+          <td class="num">5.400</td>
+          <td class="num">5.400</td>
+          <td class="num">0</td>
+          <td><span class="badge ok"><span class="dot"></span>bestätigt</span></td>
+        </tr>
+        <tr>
+          <td class="mono">24/0610</td>
+          <td>Byodo</td>
+          <td>370 ml Konfitürenglas</td>
+          <td class="num">7.200</td>
+          <td class="num">7.225</td>
+          <td class="num" style="color: var(--c-sand-500);">+25</td>
+          <td><span class="badge warn"><span class="dot"></span>offen · ungeklärt</span></td>
+        </tr>
+        <tr>
+          <td class="mono">24/0609</td>
+          <td>BIO PLANÈTE</td>
+          <td>0,5 L Ölflasche</td>
+          <td class="num">4.000</td>
+          <td class="num">4.000</td>
+          <td class="num">0</td>
+          <td><span class="badge ok"><span class="dot"></span>bestätigt</span></td>
+        </tr>
+        <tr>
+          <td class="mono">24/0608</td>
+          <td>Voelkel</td>
+          <td>0,7 L Saftflasche</td>
+          <td class="num">2.800</td>
+          <td class="num">2.790</td>
+          <td class="num">−10</td>
+          <td><span class="badge ok"><span class="dot"></span>bestätigt · Bruch</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="muted" style="font: var(--t-small); margin-top: 24px;">
+      Tipp: Die App läuft am besten auf einem Lager-Tablet (10–12 Zoll) oder Handheld-Scanner mit Browser. Kein App-Store-Download nötig.
+    </p>
+
+  </section>
+
+</div>
+</body>
+</html>

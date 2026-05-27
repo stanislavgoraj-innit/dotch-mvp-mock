@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>dotch · intern · Übersicht</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .heat td.cell { padding: 8px 10px; text-align: right; font-family: var(--font-mono); font-size: 12px; border-radius: 4px; }
+  .heat .h0 { background: var(--c-paper-warm); color: var(--c-ink-300); }
+  .heat .h1 { background: var(--c-red-100); color: var(--c-red-700); }
+  .heat .h2 { background: var(--c-red-300); color: var(--c-red-800); }
+  .heat .h3 { background: var(--c-red-600); color: #FFF; }
+  .heat .h4 { background: var(--c-red-700); color: #FFF; }
+  .heat .h5 { background: var(--c-red-800); color: #FFF; }
+  .heat th { font: var(--t-eyebrow); color: var(--c-ink-500); padding: 8px; text-align: center; letter-spacing: var(--ls-eyebrow); text-transform: uppercase; }
+  .heat td.name { font: 600 13px/1.2 var(--font-display); padding-right: 16px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="word"><span class="cluster"><i></i><i></i><i></i><i></i><i></i><i></i></span>dotch</span>
+      <span class="tag">intern</span>
+    </div>
+    <nav>
+      <span class="nav-section">Operations</span>
+      <a href="dotch-intern.html" class="nav-item active">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Übersicht
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        Mengen je KW
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M2 3h6l3 7h8l3-7h.01"/><path d="M2 3v18h20V11"/></svg>
+        Pfand-Clearing
+      </a>
+
+      <span class="nav-section">Partner</span>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        Handelspartner
+      </a>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="16" rx="2"/></svg>
+        Abfüller
+      </a>
+
+      <span class="nav-section">Analysen</span>
+      <a href="#" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 6-6"/></svg>
+        Verteilungs-Statistik
+      </a>
+      <a href="abfueller-reporting.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13a7 7 0 0 1 7-7c2 0 4 1 5 3 1 2 1 4 0 6"/></svg>
+        CO₂-Pool-Report
+      </a>
+
+      <span class="nav-section">System</span>
+      <a href="admin-accounts.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/></svg>
+        Accounts & Rollen
+      </a>
+    </nav>
+    <div class="bottom">
+      <a href="index.html" class="nav-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/></svg>
+        Abmelden
+      </a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="crumbs"><strong>dotch HQ · Berlin</strong><span>·</span><span>Operations Übersicht</span></div>
+      <div class="actions">
+        <input class="search" type="search" placeholder="Händler, Abfüller, Gebinde…" />
+        <div class="lang-pill"><button class="on">DE</button><button>EN</button></div>
+        <span class="avatar">TW</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">Plattform-Übersicht · live</span>
+          <h1>Tim, <span class="accent">hier passiert heute viel.</span></h1>
+          <p class="sub">82 Anmeldungen · 31 Reservierungen · 14 Pfand-Meldungen seit Wochenstart.</p>
+        </div>
+        <div class="right">
+          <button class="btn btn-ghost">KW 22 · 2026 ▾</button>
+          <button class="btn btn-primary">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            CSR-Export Pool
+          </button>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="kpi-grid">
+        <article class="kpi">
+          <div class="head"><span class="label">Aktive Handelspartner</span>
+            <span class="iconwrap"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+          </div>
+          <div class="num"><span class="v">18</span><span class="u">DE/AT</span></div>
+          <div class="foot"><span class="delta">+ 2</span><span>letzten 30 Tagen</span></div>
+        </article>
+        <article class="kpi">
+          <div class="head"><span class="label">Aktive Abfüller</span>
+            <span class="iconwrap"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><rect x="6" y="6" width="12" height="16" rx="2"/></svg></span>
+          </div>
+          <div class="num"><span class="v">42</span><span class="u">Marken</span></div>
+          <div class="foot"><span class="delta">+ 5</span><span>letzten 30 Tagen</span></div>
+        </article>
+        <article class="kpi">
+          <div class="head"><span class="label">Gebinde im Umlauf</span>
+            <span class="iconwrap"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M21 12a9 9 0 0 1-9 9c-5 0-9-4-9-9s4-9 9-9"/><polyline points="17 4 17 8 21 8"/></svg></span>
+          </div>
+          <div class="num"><span class="v">1,42</span><span class="u">Mio. Stück</span></div>
+          <div class="foot"><span class="delta">+ 6,4 %</span><span>vs. Vormonat</span></div>
+        </article>
+        <article class="kpi">
+          <div class="head"><span class="label">Uptime · 30 Tage</span>
+            <span class="iconwrap"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;"><polyline points="9 11 12 14 22 4"/></svg></span>
+          </div>
+          <div class="num"><span class="v">99,98</span><span class="u">%</span></div>
+          <div class="foot"><span class="delta">SLA: 99,9 %</span><span>1 geplante Wartung</span></div>
+        </article>
+      </div>
+
+      <!-- Heatmap: Mengen je Händler × KW -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <span class="meta">Pfand-Mengen je Händler & Kalenderwoche</span>
+            <h3>Wer hat <span class="accent">wieviel</span> bekommen?</h3>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="chip on">Alle Gebinde</button>
+            <button class="chip">Öl-Flaschen</button>
+            <button class="chip">Säfte</button>
+            <button class="chip">Gläser</button>
+          </div>
+        </div>
+
+        <table class="heat" style="width:100%; border-collapse: separate; border-spacing: 4px;">
+          <thead>
+            <tr>
+              <th style="text-align:left; padding-left: 0;">Händler</th>
+              <th>KW 18</th><th>KW 19</th><th>KW 20</th><th>KW 21</th>
+              <th>KW 22</th><th>KW 23</th><th>KW 24</th><th>KW 25</th>
+              <th>Summe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="name">BioFresh Süd · Augsburg</td>
+              <td class="cell h2">4.200</td>
+              <td class="cell h3">8.400</td>
+              <td class="cell h4">11.200</td>
+              <td class="cell h3">9.800</td>
+              <td class="cell h4">12.400</td>
+              <td class="cell h2">5.600</td>
+              <td class="cell h0">—</td>
+              <td class="cell h0">—</td>
+              <td class="cell h5"><strong>51.600</strong></td>
+            </tr>
+            <tr>
+              <td class="name">denn's Biomarkt · Köln</td>
+              <td class="cell h3">7.200</td>
+              <td class="cell h2">4.800</td>
+              <td class="cell h4">10.400</td>
+              <td class="cell h3">8.200</td>
+              <td class="cell h3">7.800</td>
+              <td class="cell h4">10.800</td>
+              <td class="cell h0">—</td>
+              <td class="cell h0">—</td>
+              <td class="cell h5"><strong>49.200</strong></td>
+            </tr>
+            <tr>
+              <td class="name">Naturgut · München</td>
+              <td class="cell h2">4.000</td>
+              <td class="cell h3">6.400</td>
+              <td class="cell h3">7.200</td>
+              <td class="cell h2">5.200</td>
+              <td class="cell h4">11.000</td>
+              <td class="cell h3">8.400</td>
+              <td class="cell h0">—</td>
+              <td class="cell h0">—</td>
+              <td class="cell h4"><strong>42.200</strong></td>
+            </tr>
+            <tr>
+              <td class="name">Alnatura Zentrallager · DA</td>
+              <td class="cell h2">3.600</td>
+              <td class="cell h2">4.200</td>
+              <td class="cell h3">6.800</td>
+              <td class="cell h3">7.400</td>
+              <td class="cell h3">8.000</td>
+              <td class="cell h2">4.000</td>
+              <td class="cell h0">—</td>
+              <td class="cell h0">—</td>
+              <td class="cell h3"><strong>34.000</strong></td>
+            </tr>
+            <tr>
+              <td class="name">Edeka Süd · Augsburg</td>
+              <td class="cell h1">1.800</td>
+              <td class="cell h3">9.600</td>
+              <td class="cell h3">8.800</td>
+              <td class="cell h4">12.000</td>
+              <td class="cell h2">4.400</td>
+              <td class="cell h2">5.200</td>
+              <td class="cell h0">—</td>
+              <td class="cell h0">—</td>
+              <td class="cell h4"><strong>41.800</strong></td>
+            </tr>
+            <tr>
+              <td class="name">Rewe Group Süd · Köln</td>
+              <td class="cell h1">1.200</td>
+              <td class="cell h2">3.800</td>
+              <td class="cell h2">4.400</td>
+              <td class="cell h2">5.000</td>
+              <td class="cell h3">7.200</td>
+              <td class="cell h2">3.800</td>
+              <td class="cell h0">—</td>
+              <td class="cell h0">—</td>
+              <td class="cell h3"><strong>25.400</strong></td>
+            </tr>
+            <tr>
+              <td class="name">Vollcorner · München</td>
+              <td class="cell h1">800</td>
+              <td class="cell h1">1.600</td>
+              <td class="cell h2">3.200</td>
+              <td class="cell h2">4.000</td>
+              <td class="cell h2">3.600</td>
+              <td class="cell h2">4.200</td>
+              <td class="cell h0">—</td>
+              <td class="cell h0">—</td>
+              <td class="cell h2"><strong>17.400</strong></td>
+            </tr>
+            <tr style="border-top: 2px solid var(--c-line-strong);">
+              <td class="name" style="color: var(--c-red-700);">Wochensumme</td>
+              <td class="cell" style="font-weight:600;">22.800</td>
+              <td class="cell" style="font-weight:600;">38.800</td>
+              <td class="cell" style="font-weight:600;">52.000</td>
+              <td class="cell" style="font-weight:600;">51.600</td>
+              <td class="cell" style="font-weight:600; color: var(--c-red-700);">54.400</td>
+              <td class="cell" style="font-weight:600;">42.000</td>
+              <td class="cell"></td>
+              <td class="cell"></td>
+              <td class="cell" style="font-weight:600; color: var(--c-red-700);">261.600</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="display:flex; gap:18px; margin-top: 14px; font: var(--t-caption); color: var(--c-ink-500); align-items:center;">
+          <span>Wenig</span>
+          <div style="display:flex; gap:2px;">
+            <span style="width:18px;height:14px;background:var(--c-paper-warm); border-radius: 3px;"></span>
+            <span style="width:18px;height:14px;background:var(--c-red-100); border-radius: 3px;"></span>
+            <span style="width:18px;height:14px;background:var(--c-red-300); border-radius: 3px;"></span>
+            <span style="width:18px;height:14px;background:var(--c-red-600); border-radius: 3px;"></span>
+            <span style="width:18px;height:14px;background:var(--c-red-700); border-radius: 3px;"></span>
+            <span style="width:18px;height:14px;background:var(--c-red-800); border-radius: 3px;"></span>
+          </div>
+          <span>Viel</span>
+          <span style="flex:1;"></span>
+          <span>Stand: heute 09:14</span>
+        </div>
+      </section>
+
+      <div class="two-col">
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <span class="meta">Verteilungs-Statistik · MMP-Pool</span>
+              <h3>Wer hat welche Mengen abgeholt?</h3>
+            </div>
+            <button class="btn btn-ghost btn-sm">Q2 · 2026 ▾</button>
+          </div>
+          <table class="data">
+            <thead>
+              <tr><th>Molkerei</th><th>Standorte</th><th class="num">Stück</th><th class="num">Anteil</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Berchtesgadener Land</strong></td><td>München, Augsburg</td><td class="num">48.400</td><td class="num">31,2 %</td></tr>
+              <tr><td><strong>Andechser Natur</strong></td><td>Augsburg, Stuttgart</td><td class="num">36.800</td><td class="num">23,8 %</td></tr>
+              <tr><td><strong>Hemme Milch</strong></td><td>Berlin, Bremen</td><td class="num">28.400</td><td class="num">18,3 %</td></tr>
+              <tr><td><strong>Söbbeke</strong></td><td>Köln, Dortmund</td><td class="num">24.000</td><td class="num">15,5 %</td></tr>
+              <tr><td><strong>Schrozberger</strong></td><td>Frankfurt</td><td class="num">17.200</td><td class="num">11,2 %</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <span class="meta">System-Health · live</span>
+              <h3>Plattform-Status</h3>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap: 12px;">
+            <div class="flex between center-y" style="padding: 10px; border:1px solid var(--c-line); border-radius: var(--r-md);">
+              <div class="flex gap-3 center-y">
+                <span style="width:10px;height:10px;border-radius:50%;background: var(--c-success);"></span>
+                <strong>Web Interface (Handel)</strong>
+              </div>
+              <span class="tag-mono">Uptime 99,99 % · 142 ms</span>
+            </div>
+            <div class="flex between center-y" style="padding: 10px; border:1px solid var(--c-line); border-radius: var(--r-md);">
+              <div class="flex gap-3 center-y">
+                <span style="width:10px;height:10px;border-radius:50%;background: var(--c-success);"></span>
+                <strong>Web Interface (Abfüller)</strong>
+              </div>
+              <span class="tag-mono">Uptime 99,98 % · 168 ms</span>
+            </div>
+            <div class="flex between center-y" style="padding: 10px; border:1px solid var(--c-line); border-radius: var(--r-md);">
+              <div class="flex gap-3 center-y">
+                <span style="width:10px;height:10px;border-radius:50%;background: var(--c-success);"></span>
+                <strong>Pfand-Modul</strong>
+              </div>
+              <span class="tag-mono">Uptime 99,97 % · 195 ms</span>
+            </div>
+            <div class="flex between center-y" style="padding: 10px; border:1px solid var(--c-line); border-radius: var(--r-md);">
+              <div class="flex gap-3 center-y">
+                <span style="width:10px;height:10px;border-radius:50%;background: var(--c-sand-500);"></span>
+                <strong>E-Mail-Versand</strong>
+              </div>
+              <span class="tag-mono">Queue: 14 · Latenz 4,8 s</span>
+            </div>
+            <div class="flex between center-y" style="padding: 10px; border:1px solid var(--c-line); border-radius: var(--r-md);">
+              <div class="flex gap-3 center-y">
+                <span style="width:10px;height:10px;border-radius:50%;background: var(--c-success);"></span>
+                <strong>Mengen-Clearing-App</strong>
+              </div>
+              <span class="tag-mono">Uptime 99,99 % · 86 ms</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+    <footer class="footer-thin">
+      <span>dotch · MVP-Mock · interne Sicht: alle Händler, Abfüller, Pool-Statistiken</span>
+      <span>do the change.</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>
